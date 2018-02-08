@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartScreen", "StartScreen\StartScreen.csproj", "{1AA94AED-ECD0-44BF-ABAA-39B317713234}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GystClient", "StartScreen\GystClient.csproj", "{1AA94AED-ECD0-44BF-ABAA-39B317713234}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{791EDC2E-9BB2-4CA8-A447-D3649D10BB4F}"
 EndProject

@@ -1,4 +1,4 @@
-﻿namespace StartScreen
+﻿namespace GystClient
 {
     partial class Dashboard
     {

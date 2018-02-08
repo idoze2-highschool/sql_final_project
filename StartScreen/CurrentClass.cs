@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StartScreen
+namespace GystClient
 {
     public partial class CurrentClass : Form
     {

@@ -17,7 +17,7 @@ namespace DAL
             get
             {
 
-                return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+Environment.CurrentDirectory+"";
+                return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\StartScreen")) +@"\DAL\DB.accdb";
             }
         }
         public static void Execute(string com)
