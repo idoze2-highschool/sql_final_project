@@ -15,7 +15,7 @@ namespace GystClient
 {
     public partial class LoginScreen : Form
     {
-        public static Component.User user;
+
         public LoginScreen()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace GystClient
             //TODO
             if( DAL.UserMethods.UserExists(Username, Password))
             {
-                user = DAL.UserMethods.GetUser(Username, Password);
+                Program.user = DAL.UserMethods.GetUser(Username, Password);
                 return true;
             }
             return false;

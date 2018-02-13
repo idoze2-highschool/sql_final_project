@@ -13,9 +13,9 @@ namespace DAL
         #region Data Pulling
         public static Component.User GetUser(string username, string password)
         {
-                DataTable Data = OledbHelper.GetTable("Select UserID From Users Where UName='" + username + "' AND PWord='" + password + "'");
+                DataTable Data = OledbHelper.GetTable("Select UserID, FName From Users Where UName='" + username + "' AND PWord='" + password + "'");
                 DataRow DataR = Data.Rows[0];
-                return new Component.User(int.Parse(DataR["UserID"].ToString()));
+                return new Component.User(int.Parse(DataR["UserID"].ToString()),DataR["FName"].ToString());
             
         }
         #endregion
@@ -29,7 +29,6 @@ namespace DAL
             }
             catch
             {
-                throw;
                 return false;
             }
         }

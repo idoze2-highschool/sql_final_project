@@ -15,6 +15,7 @@ namespace GystClient
         public Dashboard()
         {
             InitializeComponent();
+            label_Welcome.Text = "Welcome Back, " + Program.user.Name+".";
             timer_Clock.Start();
         }
 
