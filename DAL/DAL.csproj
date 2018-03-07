@@ -42,7 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\Assignment.cs" />
     <Compile Include="Component\Component.cs" />
+    <Compile Include="Component\Group.cs" />
+    <Compile Include="Component\Lesson.cs" />
     <Compile Include="Component\User.cs" />
     <Compile Include="oledbhelper.cs" />
     <Compile Include="Program.cs" />

@@ -22,5 +22,16 @@ namespace GystClient.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\idoze\\Desktop\\Project\\Gyst" +
+            "\\DAL\\DB.accdb;Persist Security Info=True")]
+        public string DBConnection {
+            get {
+                return ((string)(this["DBConnection"]));
+            }
+        }
     }
 }

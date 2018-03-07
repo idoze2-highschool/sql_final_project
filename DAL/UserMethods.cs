@@ -11,13 +11,25 @@ namespace DAL
     public static class UserMethods
     {
         #region Data Pulling
+        #region User
         public static Component.User GetUser(string username, string password)
         {
-                DataTable Data = OledbHelper.GetTable("Select UserID, FName From Users Where UName='" + username + "' AND PWord='" + password + "'");
-                DataRow DataR = Data.Rows[0];
-                return new Component.User(int.Parse(DataR["UserID"].ToString()),DataR["FName"].ToString());
-            
+            DataTable Data = OledbHelper.GetTable("Select * From Users Where UName='" + username + "' AND PWord='" + password + "'");
+            DataRow DataR = Data.Rows[0];
+            return new Component.User(int.Parse(DataR["UserID"].ToString()), DataR["FName"].ToString(), DataR["LName"].ToString(), int.Parse(DataR["UserType"].ToString()));
         }
+        public static DataRowCollection GetStudentsOfGroup(int GroupID)
+        {
+            DataTable Data = OledbHelper.GetTable("SELECT u.UserID,u.FName, u.LName FROM Users AS u INNER JOIN StudentToGroup AS stg ON u.UserID = stg.StudentID WHERE (((stg.GroupID) = "+GroupID+"));");
+            return Data.Rows;
+        }
+        #endregion
+        #region Lesson
+        public static DataRow GetCurrentLesson(int TeacherID)
+        {
+            return OledbHelper.GetTable("Select * From Lessons L Where L.[StartTime] <  AND L.[EndTime] < GETTIME() AND L.[TeacherID] == " + TeacherID.ToString()).Rows[0];
+        }
+        #endregion
         #endregion
         #region Data Validation
         public static bool UserExists(string Username, string Password)

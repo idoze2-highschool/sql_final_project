@@ -45,17 +45,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrentClass.cs">
+    <Compile Include="AdministratorClientScreens\ManagerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CurrentClass.Designer.cs">
+    <Compile Include="AdministratorClientScreens\ManagerDashboard.Designer.cs">
+      <DependentUpon>ManagerDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministratorClientScreens\ManageTimetable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministratorClientScreens\ManageTimetable.Designer.cs">
+      <DependentUpon>ManageTimetable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherClientScreens\CurrentClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherClientScreens\CurrentClass.Designer.cs">
       <DependentUpon>CurrentClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="TeacherClientScreens\TeacherDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="TeacherClientScreens\TeacherDashboard.Designer.cs">
+      <DependentUpon>TeacherDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet.cs">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
@@ -65,11 +85,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CurrentClass.resx">
+    <EmbeddedResource Include="AdministratorClientScreens\ManagerDashboard.resx">
+      <DependentUpon>ManagerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherClientScreens\CurrentClass.resx">
       <DependentUpon>CurrentClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="TeacherClientScreens\TeacherDashboard.resx">
+      <DependentUpon>TeacherDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
@@ -84,6 +107,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DBDataSet.xsc">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDataSet.xss">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -110,5 +144,6 @@
       <Name>WCF</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
