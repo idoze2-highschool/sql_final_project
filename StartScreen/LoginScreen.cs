@@ -15,21 +15,23 @@ namespace GystClient
 {
     public partial class LoginScreen : Form
     {
-
+        private Dictionary<int, Form> UsertypeToForm;
         public LoginScreen()
         {
             InitializeComponent();
-
+            UsertypeToForm = new Dictionary<int, Form>();
         }
 
         private void button_Login_Click(object sender, EventArgs e)
         {
-            //TODO: LOGIN
             if (Login(textBox_Username.Text, textBox_Password.Text))
             {
-                Dashboard dashboard = new Dashboard();
-                (dashboard).Show();
-                dashboard.FormClosed += Dashboard_FormClosed;
+                UsertypeToForm.Add(-1, new AdminScreens.Dashboard());//Usertype -1 => Admin
+                UsertypeToForm.Add(0, new TeacherScreens.Dashboard());//Usertype 0 => Teacher
+                UsertypeToForm.Add(1, new StudentScreens.Dashboard());//Usertype 1 => Student
+                var form = UsertypeToForm[Program.user.UserType];
+                (form).Show();
+                form.FormClosed += (object _sender, FormClosedEventArgs _e) => { Close(); };
                 Hide();
             }
             else
@@ -41,16 +43,12 @@ namespace GystClient
         private bool Login(string Username, string Password)
         {
             //TODO
-            if( DAL.UserMethods.UserExists(Username, Password))
+            if (DAL.UserMethods.UserExists(Username, Password))
             {
                 Program.user = DAL.UserMethods.GetUser(Username, Password);
                 return true;
             }
             return false;
-        }
-        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Close();
         }
         private void textBox_Username_TextChanged(object sender, EventArgs e)
         {
@@ -72,6 +70,9 @@ namespace GystClient
             else
                 button_Login.Enabled = false;
         }
-
+        private void checkBox_RememberMe_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

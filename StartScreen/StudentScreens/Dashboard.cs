@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GystClient.AdministratorClientScreens
+namespace GystClient.StudentScreens
 {
-    public partial class ManageTimetable : Form
+    public partial class Dashboard : Form
     {
-        public ManageTimetable()
+        public Dashboard()
         {
             InitializeComponent();
         }

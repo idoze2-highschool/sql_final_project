@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,29 +60,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministratorClientScreens\ManagerDashboard.cs">
+    <Compile Include="AdministratorScreens\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministratorClientScreens\ManagerDashboard.Designer.cs">
-      <DependentUpon>ManagerDashboard.cs</DependentUpon>
+    <Compile Include="AdministratorScreens\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministratorClientScreens\ManageTimetable.cs">
+    <Compile Include="AdministratorScreens\ManageTimetable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministratorClientScreens\ManageTimetable.Designer.cs">
+    <Compile Include="AdministratorScreens\ManageTimetable.Designer.cs">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeacherClientScreens\CurrentClass.cs">
+    <Compile Include="StudentScreens\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TeacherClientScreens\CurrentClass.Designer.cs">
+    <Compile Include="StudentScreens\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherScreens\CurrentClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherScreens\CurrentClass.Designer.cs">
       <DependentUpon>CurrentClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeacherClientScreens\TeacherDashboard.cs">
+    <Compile Include="TeacherScreens\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TeacherClientScreens\TeacherDashboard.Designer.cs">
-      <DependentUpon>TeacherDashboard.cs</DependentUpon>
+    <Compile Include="TeacherScreens\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DBDataSet.cs">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
@@ -85,14 +106,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdministratorClientScreens\ManagerDashboard.resx">
-      <DependentUpon>ManagerDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="AdministratorScreens\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TeacherClientScreens\CurrentClass.resx">
+    <EmbeddedResource Include="AdministratorScreens\ManageTimetable.resx">
+      <DependentUpon>ManageTimetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherScreens\CurrentClass.resx">
       <DependentUpon>CurrentClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TeacherClientScreens\TeacherDashboard.resx">
-      <DependentUpon>TeacherDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="TeacherScreens\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
@@ -144,6 +168,17 @@
       <Name>WCF</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

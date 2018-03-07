@@ -1,6 +1,6 @@
-﻿namespace GystClient.AdministratorClientScreens
+﻿namespace GystClient.StudentScreens
 {
-    partial class ManagerDashboard
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "ManagerDashboard";
+            this.Text = "Dashboard";
         }
 
         #endregion

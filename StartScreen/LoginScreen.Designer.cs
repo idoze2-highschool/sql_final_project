@@ -47,6 +47,7 @@
             this.checkBox_RememberMe.TabIndex = 2;
             this.checkBox_RememberMe.Text = "Remember Me";
             this.checkBox_RememberMe.UseVisualStyleBackColor = true;
+            this.checkBox_RememberMe.CheckedChanged += new System.EventHandler(this.checkBox_RememberMe_CheckedChanged);
             // 
             // button_Login
             // 

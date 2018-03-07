@@ -1,6 +1,6 @@
-﻿namespace GystClient
+﻿namespace GystClient.AdminScreens
 {
-    partial class CurrentClass
+    partial class ManageTimetable
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Panel_Lable_StudentNames = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Panel_Lable_StudentNames
+            // label1
             // 
-            this.Panel_Lable_StudentNames.AutoSize = true;
-            this.Panel_Lable_StudentNames.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Panel_Lable_StudentNames.Location = new System.Drawing.Point(12, 12);
-            this.Panel_Lable_StudentNames.Name = "Panel_Lable_StudentNames";
-            this.Panel_Lable_StudentNames.Size = new System.Drawing.Size(0, 0);
-            this.Panel_Lable_StudentNames.TabIndex = 0;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(45, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CurrentClass
+            // ManageTimetable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(718, 311);
-            this.Controls.Add(this.Panel_Lable_StudentNames);
-            this.Name = "CurrentClass";
-            this.Text = "CurrentClass";
+            this.ClientSize = new System.Drawing.Size(633, 315);
+            this.Controls.Add(this.label1);
+            this.Name = "ManageTimetable";
+            this.Text = "ManageTimetable";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel Panel_Lable_StudentNames;
+        private System.Windows.Forms.Label label1;
     }
 }
