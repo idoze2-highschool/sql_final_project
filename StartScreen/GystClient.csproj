@@ -78,6 +78,7 @@
     <Compile Include="AdminScreens\ManageTimetable.Designer.cs">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Methods.cs" />
     <Compile Include="StudentScreens\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +115,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminScreens\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminScreens\EditPeriod.resx">
+      <DependentUpon>EditPeriod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminScreens\ManageTimetable.resx">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
