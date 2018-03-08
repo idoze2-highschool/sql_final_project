@@ -60,16 +60,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministratorScreens\Dashboard.cs">
+    <Compile Include="AdminScreens\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministratorScreens\Dashboard.Designer.cs">
+    <Compile Include="AdminScreens\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministratorScreens\ManageTimetable.cs">
+    <Compile Include="AdminScreens\EditPeriod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdministratorScreens\ManageTimetable.Designer.cs">
+    <Compile Include="AdminScreens\EditPeriod.Designer.cs">
+      <DependentUpon>EditPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminScreens\ManageTimetable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminScreens\ManageTimetable.Designer.cs">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentScreens\Dashboard.cs">
@@ -106,10 +112,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdministratorScreens\Dashboard.resx">
+    <EmbeddedResource Include="AdminScreens\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdministratorScreens\ManageTimetable.resx">
+    <EmbeddedResource Include="AdminScreens\ManageTimetable.resx">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherScreens\CurrentClass.resx">
