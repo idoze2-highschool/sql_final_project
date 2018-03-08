@@ -12,14 +12,15 @@ namespace GystClient.AdminScreens
 {
     public partial class ManageTimetable : Form
     {
+        Tuple<int, int> Selected = new Tuple<int, int>(1, 1);
         public ManageTimetable()
         {
             InitializeComponent();
+            LoadTree();
             LoadTimeTable();
         }
         public void LoadTimeTable()
         {
-
             for (int day = 1; day < 7; day++)
             {
                 string txt = Methods.GetDayName(day).Substring(0, 3);
@@ -34,7 +35,7 @@ namespace GystClient.AdminScreens
                     Text = txt,
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                l.Location = new Point( l.Size.Width * (day - 1), 0);
+                l.Location = new Point(l.Size.Width * (day - 1), 0);
                 panel_table.Controls.Add(l);
                 for (int period = 1; period < 11; period++)
                 {
@@ -52,7 +53,7 @@ namespace GystClient.AdminScreens
                         Tag = new Tuple<int, int>(day, period)
 
                     };
-                    l.Location = new Point( l.Size.Width * (day - 1), l.Size.Height * period);
+                    l.Location = new Point(l.Size.Width * (day - 1), l.Size.Height * period);
                     l.Click += L_Click;
                     l.MouseEnter += (object _sender, EventArgs _e) =>
                     {
@@ -68,18 +69,56 @@ namespace GystClient.AdminScreens
                 };
             }
         }
+        public void LoadTree()
+        {
+            treeView_Search.Nodes.Add(GetTree_Teachers());
+            treeView_Search.Nodes.Add(GetTree_Subjects());
+            treeView_Search.Nodes.Add(GetTree_HomeRoomClasses());
+            treeView_Search.NodeMouseDoubleClick += (object sender, TreeNodeMouseClickEventArgs e) =>
+              {
+                  MessageBox.Show((((TreeNode)sender).Tag).ToString());
+              };
+        }
+        private TreeNode GetTree_Teachers()
+        {
+            TreeNode Root = new TreeNode();
+            foreach (DataRow Teacher in DAL.UserMethods.GetTeachers())
+            {
+                TreeNode child = new TreeNode(Teacher["FName"].ToString() + " " + Teacher["LName"].ToString());
+                child.Tag = int.Parse(Teacher["UserID"].ToString());
+                Root.Nodes.Add(child);
+            }
+            Root.Text = string.Format("Teachers [{0}]", Root.Nodes.Count);
+            Root.Tag = Root.Text;
+            return Root;
+        }
+        private TreeNode GetTree_Subjects()
+        {
+            throw new NotImplementedException();
+        }
+        private string GetTree_HomeRoomClasses()
+        {
+            TreeNode Root = new TreeNode();
+            foreach (DataRow StudentToClass in DAL.UserMethods.GetStudentsToClasses())
+            {
+                string Grade = (StudentToClass["Grade"]).ToString();
+                try
+                {
+                    Root.Nodes.Find(Grade, false)[0].Nodes.Add()
+                }
 
+            }
+            Root.Text = string.Format("Home-Room Classes [{0}]", Root.Nodes.Count);
+            Root.Tag = Root.Text;
+            return Root;
+        }
         private void L_Click(object sender, EventArgs e)
         {
-
-            EditPeriod form = new EditPeriod(((Tuple<int, int>)((Control)sender).Tag).Item1, ((Tuple<int, int>)((Control)sender).Tag).Item2);
-            form.FormClosed += (object _sender, FormClosedEventArgs _e) => { Show(); };
-            Hide();
+            Selected = (Tuple<int, int>)((Control)sender).Tag;
         }
-
-        private void treeView_Search_AfterSelect(object sender, TreeViewEventArgs e)
+        private void comboBox_Filter_Selection_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            LoadTree();
         }
     }
 
