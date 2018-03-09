@@ -36,7 +36,7 @@ namespace DAL
         #region Classes
         public static DataRowCollection GetStudentsToClasses()
         {
-            DataTable data = OledbHelper.GetTable("SELECT Users.UserID, Users.FName, Users.LName, Left([GroupName],2) AS Grade, Right([GroupName],2) AS ClassNumber FROM Groups AS Class INNER JOIN (Users INNER JOIN StudentToGroup ON Users.UserID = StudentToGroup.StudentID) ON Class.GroupID = StudentToGroup.GroupID WHERE (((Class.SubjectID)=1));");
+            DataTable data = OledbHelper.GetTable("SELECT Users.UserID, Users.FName, Users.LName, StudentToCourse.SubjectName AS Course, StudentToGrade.Grade, StudentToGrade.ClassNumber FROM StudentToGrade INNER JOIN (StudentToCourse INNER JOIN Users ON StudentToCourse.[UserID] = Users.[UserID]) ON StudentToGrade.[UserID] = Users.[UserID]");
             return data.Rows;
         }
         #endregion

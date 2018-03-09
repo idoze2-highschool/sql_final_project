@@ -72,11 +72,10 @@ namespace GystClient.AdminScreens
         public void LoadTree()
         {
             treeView_Search.Nodes.Add(GetTree_Teachers());
-            treeView_Search.Nodes.Add(GetTree_Subjects());
             treeView_Search.Nodes.Add(GetTree_HomeRoomClasses());
             treeView_Search.NodeMouseDoubleClick += (object sender, TreeNodeMouseClickEventArgs e) =>
               {
-                  MessageBox.Show((((TreeNode)sender).Tag).ToString());
+            //      MessageBox.Show((((TreeNode)sender).Tag).ToString());
               };
         }
         private TreeNode GetTree_Teachers()
@@ -92,20 +91,44 @@ namespace GystClient.AdminScreens
             Root.Tag = Root.Text;
             return Root;
         }
-        private TreeNode GetTree_Subjects()
-        {
-            throw new NotImplementedException();
-        }
-        private string GetTree_HomeRoomClasses()
+        private TreeNode GetTree_HomeRoomClasses()
         {
             TreeNode Root = new TreeNode();
-            foreach (DataRow StudentToClass in DAL.UserMethods.GetStudentsToClasses())
+            foreach (DataRow Student in DAL.UserMethods.GetStudentsToClasses())
             {
-                string Grade = (StudentToClass["Grade"]).ToString();
+                string Grade = (Student["Grade"]).ToString();
+                string Class = (Student["ClassNumber"]).ToString();
+                string Course = (Student["Course"]).ToString();
+                TreeNode GradeNode = new TreeNode(Grade), ClassNode = new TreeNode(Class), CourseNode = new TreeNode(Course);
                 try
                 {
-                    Root.Nodes.Find(Grade, false)[0].Nodes.Add()
+                   GradeNode= Root.Nodes.Find(Grade, false)[0];
+                    try
+                    {
+                        ClassNode = GradeNode.Nodes.Find(Class, false)[0];
+                        try
+                        {
+                            CourseNode = ClassNode.Nodes.Find(Course, false)[0];
+                        }
+                        catch
+                        {
+                            ClassNode.Nodes.Add(CourseNode);
+                        }
+                    }
+                    catch
+                    {
+                        ClassNode.Nodes.Add(CourseNode);
+                        GradeNode.Nodes.Add(ClassNode);
+                    }
                 }
+                catch(Exception e)
+                {
+                    
+                    ClassNode.Nodes.Add(CourseNode);
+                    GradeNode.Nodes.Add(ClassNode);
+                    Root.Nodes.Add(GradeNode);
+                }
+                GradeNode.Tag = 
 
             }
             Root.Text = string.Format("Home-Room Classes [{0}]", Root.Nodes.Count);

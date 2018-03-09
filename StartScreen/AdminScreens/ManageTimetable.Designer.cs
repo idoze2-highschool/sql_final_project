@@ -31,7 +31,6 @@
             this.panel_table = new System.Windows.Forms.Panel();
             this.treeView_Search = new System.Windows.Forms.TreeView();
             this.panel_ViewLesson = new System.Windows.Forms.Panel();
-            this.Label_ = new System.Windows.Forms.Label();
             this.panel_ViewLesson.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,22 +57,12 @@
             this.panel_ViewLesson.AutoSize = true;
             this.panel_ViewLesson.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_ViewLesson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_ViewLesson.Controls.Add(this.Label_);
             this.panel_ViewLesson.Controls.Add(this.treeView_Search);
             this.panel_ViewLesson.Location = new System.Drawing.Point(12, 12);
             this.panel_ViewLesson.MinimumSize = new System.Drawing.Size(10, 10);
             this.panel_ViewLesson.Name = "panel_ViewLesson";
             this.panel_ViewLesson.Size = new System.Drawing.Size(209, 253);
             this.panel_ViewLesson.TabIndex = 1;
-            // 
-            // Label_
-            // 
-            this.Label_.AutoSize = true;
-            this.Label_.Location = new System.Drawing.Point(3, 0);
-            this.Label_.Name = "Label_";
-            this.Label_.Size = new System.Drawing.Size(35, 13);
-            this.Label_.TabIndex = 2;
-            this.Label_.Text = "label1";
             // 
             // ManageTimetable
             // 
@@ -85,7 +74,6 @@
             this.Name = "ManageTimetable";
             this.Text = "ManageTimetable";
             this.panel_ViewLesson.ResumeLayout(false);
-            this.panel_ViewLesson.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,6 +84,5 @@
         private System.Windows.Forms.Panel panel_table;
         private System.Windows.Forms.TreeView treeView_Search;
         private System.Windows.Forms.Panel panel_ViewLesson;
-        private System.Windows.Forms.Label Label_;
     }
 }
