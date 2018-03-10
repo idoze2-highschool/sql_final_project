@@ -75,8 +75,8 @@ namespace GystClient.AdminScreens
             treeView_Search.Nodes.Add(GetTree_HomeRoomClasses());
             treeView_Search.NodeMouseDoubleClick += (object sender, TreeNodeMouseClickEventArgs e) =>
               {
-            //      MessageBox.Show((((TreeNode)sender).Tag).ToString());
-              };
+
+               };
         }
         private TreeNode GetTree_Teachers()
         {
@@ -99,36 +99,36 @@ namespace GystClient.AdminScreens
                 string Grade = (Student["Grade"]).ToString();
                 string Class = (Student["ClassNumber"]).ToString();
                 string Course = (Student["Course"]).ToString();
-                TreeNode GradeNode = new TreeNode(Grade), ClassNode = new TreeNode(Class), CourseNode = new TreeNode(Course);
-                try
+                TreeNode GradeNode = new TreeNode(Methods.ToIndexingNumber(int.Parse(Grade))) { Name = Grade };
+                TreeNode ClassNode = new TreeNode(Class) { Name = Class};
+                TreeNode CourseNode = new TreeNode(Course) { Name = Course};
+                if(Root.Nodes.ContainsKey(Grade))
                 {
-                   GradeNode= Root.Nodes.Find(Grade, false)[0];
-                    try
+                    GradeNode = Root.Nodes.Find(Grade,false)[0];
+                    if(GradeNode.Nodes.ContainsKey(Class))
                     {
                         ClassNode = GradeNode.Nodes.Find(Class, false)[0];
-                        try
+                        if(ClassNode.Nodes.ContainsKey(Course))
                         {
                             CourseNode = ClassNode.Nodes.Find(Course, false)[0];
                         }
-                        catch
+                        else
                         {
                             ClassNode.Nodes.Add(CourseNode);
                         }
                     }
-                    catch
+                    else
                     {
                         ClassNode.Nodes.Add(CourseNode);
                         GradeNode.Nodes.Add(ClassNode);
                     }
                 }
-                catch(Exception e)
-                {
-                    
+                else
+                { 
                     ClassNode.Nodes.Add(CourseNode);
                     GradeNode.Nodes.Add(ClassNode);
                     Root.Nodes.Add(GradeNode);
                 }
-                GradeNode.Tag = 
 
             }
             Root.Text = string.Format("Home-Room Classes [{0}]", Root.Nodes.Count);
@@ -139,9 +139,55 @@ namespace GystClient.AdminScreens
         {
             Selected = (Tuple<int, int>)((Control)sender).Tag;
         }
-        private void comboBox_Filter_Selection_SelectedIndexChanged(object sender, EventArgs e)
+        public void LoadTimeTableByTeacher()
         {
-            LoadTree();
+            for (int day = 1; day < 7; day++)
+            {
+                string txt = Methods.GetDayName(day).Substring(0, 3);
+                Label l = new Label
+                {
+                    Name = "label_" + txt,
+                    BackColor = Color.FromArgb(255, 224, 192),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    ForeColor = SystemColors.ControlText,
+                    Size = new Size(54, 29),
+                    TabIndex = 0,
+                    Text = txt,
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                l.Location = new Point(l.Size.Width * (day - 1), 0);
+                panel_table.Controls.Add(l);
+                for (int period = 1; period < 11; period++)
+                {
+                    txt = Methods.ToIndexingNumber(period) + " Period";
+                    l = new Label
+                    {
+                        Name = "label_" + txt,
+                        Text = txt,
+                        BackColor = Color.FromArgb(255, 224, 192),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        ForeColor = SystemColors.ControlText,
+                        Size = new Size(54, 29),
+                        TabIndex = 0,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Tag = new Tuple<int, int>(day, period)
+
+                    };
+                    l.Location = new Point(l.Size.Width * (day - 1), l.Size.Height * period);
+                    l.Click += L_Click;
+                    l.MouseEnter += (object _sender, EventArgs _e) =>
+                    {
+                        ((Control)_sender).BackColor = Color.Orange;
+                        ((Control)_sender).Text = "View Lessons";
+                    };
+                    l.MouseLeave += (object _sender, EventArgs _e) =>
+                    {
+                        ((Control)_sender).BackColor = Color.FromArgb(255, 224, 192);
+                        ((Control)_sender).Text = Methods.ToIndexingNumber(((Tuple<int, int>)((Control)_sender).Tag).Item2) + " Period";
+                    };
+                    panel_table.Controls.Add(l);
+                };
+            }
         }
     }
 

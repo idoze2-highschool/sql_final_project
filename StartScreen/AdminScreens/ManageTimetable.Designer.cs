@@ -39,7 +39,7 @@
             this.panel_table.AutoSize = true;
             this.panel_table.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_table.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_table.Location = new System.Drawing.Point(227, 12);
+            this.panel_table.Location = new System.Drawing.Point(226, 32);
             this.panel_table.MinimumSize = new System.Drawing.Size(10, 10);
             this.panel_table.Name = "panel_table";
             this.panel_table.Size = new System.Drawing.Size(10, 10);
@@ -47,7 +47,7 @@
             // 
             // treeView_Search
             // 
-            this.treeView_Search.Location = new System.Drawing.Point(0, 16);
+            this.treeView_Search.Location = new System.Drawing.Point(-1, -1);
             this.treeView_Search.Name = "treeView_Search";
             this.treeView_Search.Size = new System.Drawing.Size(204, 232);
             this.treeView_Search.TabIndex = 1;
@@ -58,10 +58,10 @@
             this.panel_ViewLesson.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_ViewLesson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_ViewLesson.Controls.Add(this.treeView_Search);
-            this.panel_ViewLesson.Location = new System.Drawing.Point(12, 12);
+            this.panel_ViewLesson.Location = new System.Drawing.Point(12, 32);
             this.panel_ViewLesson.MinimumSize = new System.Drawing.Size(10, 10);
             this.panel_ViewLesson.Name = "panel_ViewLesson";
-            this.panel_ViewLesson.Size = new System.Drawing.Size(209, 253);
+            this.panel_ViewLesson.Size = new System.Drawing.Size(208, 236);
             this.panel_ViewLesson.TabIndex = 1;
             // 
             // ManageTimetable

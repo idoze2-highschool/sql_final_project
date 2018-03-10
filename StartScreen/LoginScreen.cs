@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Component = DAL.Component;
 using DAL;
 using WCF;
@@ -69,10 +70,6 @@ namespace GystClient
                 button_Login.Enabled = true;
             else
                 button_Login.Enabled = false;
-        }
-        private void checkBox_RememberMe_CheckedChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }
