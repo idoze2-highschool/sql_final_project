@@ -1,6 +1,6 @@
 ﻿namespace GystClient.AdminScreens
 {
-    partial class EditPeriod
+    partial class EditLesson
     {
         /// <summary>
         /// Required designer variable.

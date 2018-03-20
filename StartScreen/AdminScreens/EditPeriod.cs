@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GystClient.AdminScreens
 {
-    public partial class EditPeriod : Form
+    public partial class EditLesson : Form
     {
-        public EditPeriod(int day,int period)
+        public EditLesson(int day,int period)
         {
             InitializeComponent();
             CreateDayLabel(day);

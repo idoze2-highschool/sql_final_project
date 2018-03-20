@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
 
-namespace DAL
+namespace DALOrg
 {
     public static class UserMethods
     {
@@ -21,7 +21,8 @@ namespace DAL
         #region Students
         public static DataRowCollection GetStudentsOfGroup(int GroupID)
         {
-            DataTable Data = OledbHelper.GetTable("SELECT u.UserID,u.FName, u.LName FROM Users AS u INNER JOIN StudentToGroup AS stg ON u.UserID = stg.StudentID WHERE (((stg.GroupID) = " + GroupID + "));");
+            string expr = string.Format("PARAMETERS ID Short = {0}; SELECT * FROM GetStudentsByGroupID",GroupID);
+            DataTable Data = OledbHelper.GetTable(expr);
             return Data.Rows;
         }
         #endregion
@@ -34,9 +35,15 @@ namespace DAL
         #endregion
         #endregion
         #region Classes
-        public static DataRowCollection GetStudentsToClasses()
+        /// <summary>
+        /// Returns a Collection Of Student To Home-Class Relations
+        /// Fields: Users.UserID, Users.FName, Users.LName, StudentToCourse.SubjectName AS Course, StudentToGrade.Grade, StudentToGrade.ClassNumber
+        /// </summary>
+        /// <returns></returns>
+        public static DataRowCollection GetCourseToGroup()
         {
-            DataTable data = OledbHelper.GetTable("SELECT Users.UserID, Users.FName, Users.LName, StudentToCourse.SubjectName AS Course, StudentToGrade.Grade, StudentToGrade.ClassNumber FROM StudentToGrade INNER JOIN (StudentToCourse INNER JOIN Users ON StudentToCourse.[UserID] = Users.[UserID]) ON StudentToGrade.[UserID] = Users.[UserID]");
+            string expr = "SELECT * FROM GetCourseToGroup";
+            DataTable data = OledbHelper.GetTable(expr);
             return data.Rows;
         }
         #endregion
@@ -44,6 +51,32 @@ namespace DAL
         public static DataRow GetCurrentLesson(int TeacherID)
         {
             return OledbHelper.GetTable("Select * From Lessons L Where L.[StartTime] <  AND L.[EndTime] < GETTIME() AND L.[TeacherID] == " + TeacherID.ToString()).Rows[0];
+        }
+        /// <summary>
+        /// Returns A Collection Of Lesson To Teacher Relations.
+        /// Fields: TeacherID, Teacher.FName, Teacher.LName, Lesson.LessonID, Lesson.Day, Lesson.Period, Groups.GroupName, Groups.GroupID, Subjects.SubjectName 
+        /// ORDERED By Lesson.Day, Lesson.Period - ASC,ASC
+        /// </summary>
+        /// <param name="TeacherID"></param>
+        /// <returns></returns>
+        public static DataRowCollection GetLessonsByTeacher(int TeacherID)
+        {
+            string expr = string.Format("SELECT * FROM GetLessonsByTeacher WHERE [TeacherID] = {0}", TeacherID);
+            DataTable data = OledbHelper.GetTable(expr);
+            return data.Rows;
+        }
+        /// <summary>
+        /// Returns A Collection Of Lesson To Group Relations.
+        /// Fields: TeacherID, Teacher.FName, Teacher.LName, Lesson.LessonID, Lesson.Day, Lesson.Period, Groups.GroupName, Groups.GroupName, Subjects.SubjectName 
+        /// ORDERED By Lesson.Day, Lesson.Period - ASC,ASC
+        /// </summary>
+        /// <param name="GroupID"></param>
+        /// <returns></returns>
+        public static DataRowCollection GetLessonsByGroup(int GroupID)
+        {
+            string expr = string.Format( "SELECT * FROM GetLessonsByGroup WHERE [GroupID] = {0}", GroupID);
+            DataTable data = OledbHelper.GetTable(expr);
+            return data.Rows;
         }
         #endregion
         #endregion
@@ -86,6 +119,22 @@ namespace DAL
         #endregion
         #region Update
 
+        #endregion
+        #region Remove
+        /// <summary>
+        /// Removes The Specified Lesson From The Database
+        /// </summary>
+        /// <param name="LessonID"></param>
+        public static void RemoveLesson(int LessonID)
+        {
+            string Expr = String.Format("REMOVE * FROM Lessons Where [LessonID]={0}",LessonID);
+            OledbHelper.Execute(Expr);
+        }
+
+        public static DataRow GetLesson(int lessonID)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
         #endregion
     }
