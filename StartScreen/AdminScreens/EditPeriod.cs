@@ -10,12 +10,15 @@ using System.Windows.Forms;
 
 namespace GystClient.AdminScreens
 {
-    public partial class EditLesson : Form
+    public partial class EditLesson_Base : Form
     {
-        public EditLesson(int day,int period)
+        private int Day,Period,TeacherID, GroupID,CourseID,SubjectID;
+        public EditLesson_Base(int day,int period)
         {
             InitializeComponent();
+            Day = day;
             CreateDayLabel(day);
+            Period = period;
             CreatePeriodLabel(period);
         }
         private void CreateDayLabel(int day)
@@ -45,10 +48,6 @@ namespace GystClient.AdminScreens
                 Text = Methods.ToIndexingNumber(period),
                 TextAlign = ContentAlignment.MiddleCenter
             });
-        }
-        private void label_group_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

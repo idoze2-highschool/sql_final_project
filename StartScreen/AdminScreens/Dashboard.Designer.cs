@@ -63,6 +63,10 @@
             this.label_Welcome.TabIndex = 2;
             this.label_Welcome.Text = "Welcome, \'User\'";
             // 
+            // timer_Clock
+            // 
+            this.timer_Clock.Tick += new System.EventHandler(this.timer_Clock_Tick);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

@@ -1,6 +1,6 @@
 ﻿namespace GystClient.AdminScreens
 {
-    partial class EditLesson
+    partial class EditLesson_Base
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,21 @@
             this.label_day_title = new System.Windows.Forms.Label();
             this.label_period_title = new System.Windows.Forms.Label();
             this.label_group_title = new System.Windows.Forms.Label();
-            this.label_group = new System.Windows.Forms.Label();
+            this.comboBox_Group = new System.Windows.Forms.ComboBox();
+            this.label_subject_title = new System.Windows.Forms.Label();
+            this.comboBox_Subject = new System.Windows.Forms.ComboBox();
+            this.label_course_title = new System.Windows.Forms.Label();
+            this.comboBox_Course = new System.Windows.Forms.ComboBox();
+            this.label_teacher_title = new System.Windows.Forms.Label();
+            this.comboBox_teacher = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_day_title
             // 
             this.label_day_title.AutoSize = true;
-            this.label_day_title.Location = new System.Drawing.Point(13, 13);
+            this.label_day_title.Location = new System.Drawing.Point(13, 10);
             this.label_day_title.Name = "label_day_title";
             this.label_day_title.Size = new System.Drawing.Size(29, 13);
             this.label_day_title.TabIndex = 0;
@@ -46,7 +54,7 @@
             // label_period_title
             // 
             this.label_period_title.AutoSize = true;
-            this.label_period_title.Location = new System.Drawing.Point(13, 26);
+            this.label_period_title.Location = new System.Drawing.Point(12, 44);
             this.label_period_title.Name = "label_period_title";
             this.label_period_title.Size = new System.Drawing.Size(40, 13);
             this.label_period_title.TabIndex = 1;
@@ -55,33 +63,108 @@
             // label_group_title
             // 
             this.label_group_title.AutoSize = true;
-            this.label_group_title.Location = new System.Drawing.Point(13, 39);
+            this.label_group_title.Location = new System.Drawing.Point(14, 112);
             this.label_group_title.Name = "label_group_title";
             this.label_group_title.Size = new System.Drawing.Size(39, 13);
             this.label_group_title.TabIndex = 2;
             this.label_group_title.Text = "Group:";
             // 
-            // label_group
+            // comboBox_Group
             // 
-            this.label_group.AutoSize = true;
-            this.label_group.ForeColor = System.Drawing.Color.Blue;
-            this.label_group.Location = new System.Drawing.Point(58, 39);
-            this.label_group.Name = "label_group";
-            this.label_group.Size = new System.Drawing.Size(43, 13);
-            this.label_group.TabIndex = 3;
-            this.label_group.Text = "[Select]";
-            this.label_group.Click += new System.EventHandler(this.label_group_Click);
+            this.comboBox_Group.FormattingEnabled = true;
+            this.comboBox_Group.Location = new System.Drawing.Point(59, 109);
+            this.comboBox_Group.Name = "comboBox_Group";
+            this.comboBox_Group.Size = new System.Drawing.Size(82, 21);
+            this.comboBox_Group.TabIndex = 3;
             // 
-            // EditPeriod
+            // label_subject_title
+            // 
+            this.label_subject_title.AutoSize = true;
+            this.label_subject_title.Location = new System.Drawing.Point(14, 146);
+            this.label_subject_title.Name = "label_subject_title";
+            this.label_subject_title.Size = new System.Drawing.Size(46, 13);
+            this.label_subject_title.TabIndex = 5;
+            this.label_subject_title.Text = "Subject:";
+            // 
+            // comboBox_Subject
+            // 
+            this.comboBox_Subject.Enabled = false;
+            this.comboBox_Subject.FormattingEnabled = true;
+            this.comboBox_Subject.Location = new System.Drawing.Point(66, 143);
+            this.comboBox_Subject.Name = "comboBox_Subject";
+            this.comboBox_Subject.Size = new System.Drawing.Size(82, 21);
+            this.comboBox_Subject.TabIndex = 6;
+            // 
+            // label_course_title
+            // 
+            this.label_course_title.AutoSize = true;
+            this.label_course_title.Location = new System.Drawing.Point(13, 78);
+            this.label_course_title.Name = "label_course_title";
+            this.label_course_title.Size = new System.Drawing.Size(43, 13);
+            this.label_course_title.TabIndex = 7;
+            this.label_course_title.Text = "Course:";
+            // 
+            // comboBox_Course
+            // 
+            this.comboBox_Course.FormattingEnabled = true;
+            this.comboBox_Course.Location = new System.Drawing.Point(62, 75);
+            this.comboBox_Course.Name = "comboBox_Course";
+            this.comboBox_Course.Size = new System.Drawing.Size(82, 21);
+            this.comboBox_Course.TabIndex = 8;
+            // 
+            // label_teacher_title
+            // 
+            this.label_teacher_title.AutoSize = true;
+            this.label_teacher_title.Location = new System.Drawing.Point(14, 179);
+            this.label_teacher_title.Name = "label_teacher_title";
+            this.label_teacher_title.Size = new System.Drawing.Size(50, 13);
+            this.label_teacher_title.TabIndex = 9;
+            this.label_teacher_title.Text = "Teacher:";
+            // 
+            // comboBox_teacher
+            // 
+            this.comboBox_teacher.FormattingEnabled = true;
+            this.comboBox_teacher.Location = new System.Drawing.Point(70, 176);
+            this.comboBox_teacher.Name = "comboBox_teacher";
+            this.comboBox_teacher.Size = new System.Drawing.Size(82, 21);
+            this.comboBox_teacher.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 215);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Edit";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(84, 215);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // EditLesson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.label_group);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox_teacher);
+            this.Controls.Add(this.label_teacher_title);
+            this.Controls.Add(this.comboBox_Course);
+            this.Controls.Add(this.label_course_title);
+            this.Controls.Add(this.comboBox_Subject);
+            this.Controls.Add(this.label_subject_title);
+            this.Controls.Add(this.comboBox_Group);
             this.Controls.Add(this.label_group_title);
             this.Controls.Add(this.label_period_title);
             this.Controls.Add(this.label_day_title);
-            this.Name = "EditPeriod";
+            this.Name = "EditLesson";
             this.Text = "EditPeriod";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -93,6 +176,14 @@
         private System.Windows.Forms.Label label_day_title;
         private System.Windows.Forms.Label label_period_title;
         private System.Windows.Forms.Label label_group_title;
-        private System.Windows.Forms.Label label_group;
+        private System.Windows.Forms.ComboBox comboBox_Group;
+        private System.Windows.Forms.Label label_subject_title;
+        private System.Windows.Forms.ComboBox comboBox_Subject;
+        private System.Windows.Forms.Label label_course_title;
+        private System.Windows.Forms.ComboBox comboBox_Course;
+        private System.Windows.Forms.Label label_teacher_title;
+        private System.Windows.Forms.ComboBox comboBox_teacher;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

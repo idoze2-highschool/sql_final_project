@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Component = DAL.Component;
-using DAL;
+using DAL = DALOrg;
 using WCF;
 
 namespace GystClient

@@ -45,17 +45,13 @@ namespace DALOrg
         {
 
             if (cn.State != ConnectionState.Open)
-            {
                 cn.Open();
-            }
-
             OleDbCommand command = new OleDbCommand();
             command.Connection = cn;
             command.CommandText = com;
             DataTable dt = new DataTable();
             dt.TableName = "tbl";
             OleDbDataAdapter adapter = new OleDbDataAdapter(command);
-
             try
             {
                 adapter.Fill(dt);
