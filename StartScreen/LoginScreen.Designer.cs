@@ -50,12 +50,11 @@
             // 
             // button_Login
             // 
-            this.button_Login.Enabled = false;
             this.button_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Login.Location = new System.Drawing.Point(231, 157);
             this.button_Login.Name = "button_Login";
             this.button_Login.Size = new System.Drawing.Size(94, 32);
-            this.button_Login.TabIndex = 1;
+            this.button_Login.TabIndex = 0;
             this.button_Login.Text = "Login";
             this.button_Login.UseVisualStyleBackColor = true;
             this.button_Login.Click += new System.EventHandler(this.button_Login_Click);
@@ -68,7 +67,7 @@
             this.textBox_Password.PasswordChar = '*';
             this.textBox_Password.Size = new System.Drawing.Size(94, 22);
             this.textBox_Password.TabIndex = 1;
-            this.textBox_Password.Text = "Password";
+            this.textBox_Password.Text = "admin";
             this.textBox_Password.TextChanged += new System.EventHandler(this.textBox_Password_TextChanged);
             // 
             // textBox_Username
@@ -78,7 +77,7 @@
             this.textBox_Username.Name = "textBox_Username";
             this.textBox_Username.Size = new System.Drawing.Size(94, 22);
             this.textBox_Username.TabIndex = 0;
-            this.textBox_Username.Text = "Username";
+            this.textBox_Username.Text = "admin";
             this.textBox_Username.TextChanged += new System.EventHandler(this.textBox_Username_TextChanged);
             // 
             // label_Logo_SubPlaceHolder

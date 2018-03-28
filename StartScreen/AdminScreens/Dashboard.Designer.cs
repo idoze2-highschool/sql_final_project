@@ -33,11 +33,12 @@
             this.label_Clock = new System.Windows.Forms.Label();
             this.label_Welcome = new System.Windows.Forms.Label();
             this.timer_Clock = new System.Windows.Forms.Timer(this.components);
+            this.button_Manage_Groups = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_Manage_Timetable
             // 
-            this.button_Manage_Timetable.Location = new System.Drawing.Point(286, 114);
+            this.button_Manage_Timetable.Location = new System.Drawing.Point(265, 134);
             this.button_Manage_Timetable.Name = "button_Manage_Timetable";
             this.button_Manage_Timetable.Size = new System.Drawing.Size(75, 40);
             this.button_Manage_Timetable.TabIndex = 0;
@@ -63,15 +64,22 @@
             this.label_Welcome.TabIndex = 2;
             this.label_Welcome.Text = "Welcome, \'User\'";
             // 
-            // timer_Clock
+            // button_Manage_Groups
             // 
-            this.timer_Clock.Tick += new System.EventHandler(this.timer_Clock_Tick);
+            this.button_Manage_Groups.Location = new System.Drawing.Point(346, 134);
+            this.button_Manage_Groups.Name = "button_Manage_Groups";
+            this.button_Manage_Groups.Size = new System.Drawing.Size(75, 40);
+            this.button_Manage_Groups.TabIndex = 4;
+            this.button_Manage_Groups.Text = "Manage Groups";
+            this.button_Manage_Groups.UseVisualStyleBackColor = true;
+            this.button_Manage_Groups.Click += new System.EventHandler(this.button_Manage_Groups_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(687, 309);
+            this.Controls.Add(this.button_Manage_Groups);
             this.Controls.Add(this.label_Clock);
             this.Controls.Add(this.label_Welcome);
             this.Controls.Add(this.button_Manage_Timetable);
@@ -88,5 +96,6 @@
         private System.Windows.Forms.Label label_Clock;
         private System.Windows.Forms.Label label_Welcome;
         private System.Windows.Forms.Timer timer_Clock;
+        private System.Windows.Forms.Button button_Manage_Groups;
     }
 }

@@ -15,6 +15,7 @@ namespace GystClient.AdminScreens
         public Dashboard()
         {
             InitializeComponent();
+            label_Welcome.Text = "Welcome Back, " + Program.user.FName + ".";
             timer_Clock.Start();
             timer_Clock.Tick += (object _sender, EventArgs _e) =>
             {
@@ -25,18 +26,19 @@ namespace GystClient.AdminScreens
                 label_Clock.Text = txt;
             };
         }
-
         private void button_Manage_Timetable_Click(object sender, EventArgs e)
         {
-            ManageTimetable form = new ManageTimetable();
+            Manage_Timetable.ManageTimetable form = new Manage_Timetable.ManageTimetable();
             form.FormClosed += (object s, FormClosedEventArgs ev) => { Show(); };
             form.Show();
             Hide();
         }
-
-        private void timer_Clock_Tick(object sender, EventArgs e)
+        private void button_Manage_Groups_Click(object sender, EventArgs e)
         {
-
+            Manage_Groups.ManageGroups form = new Manage_Groups.ManageGroups();
+            form.FormClosed += (object s, FormClosedEventArgs ev) => { Show(); };
+            form.Show();
+            Hide();
         }
     }
 }

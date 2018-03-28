@@ -49,6 +49,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,28 +61,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminScreens\Manage Groups\ManageGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminScreens\Manage Groups\ManageGroups.Designer.cs">
+      <DependentUpon>ManageGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminScreens\Manage Timetable\AddLessonForGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminScreens\Manage Timetable\AddLessonForGroup.Designer.cs">
+      <DependentUpon>AddLessonForGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminScreens\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminScreens\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminScreens\EditLessonForTeacher.cs">
+    <Compile Include="AdminScreens\Manage Timetable\AddLessonForTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminScreens\EditLessonForTeacher.Designer.cs">
+    <Compile Include="AdminScreens\Manage Timetable\AddLessonForTeacher.Designer.cs">
+      <DependentUpon>AddLessonForTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminScreens\Manage Timetable\EditLessonForGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminScreens\Manage Timetable\EditLessonForGroup.Designer.cs">
+      <DependentUpon>EditLessonForGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminScreens\Manage Timetable\EditLessonForTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminScreens\Manage Timetable\EditLessonForTeacher.Designer.cs">
       <DependentUpon>EditLessonForTeacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminScreens\EditPeriod.cs">
+    <Compile Include="AdminScreens\Manage Timetable\ManageTimetable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminScreens\EditPeriod.Designer.cs">
-      <DependentUpon>EditPeriod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminScreens\ManageTimetable.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminScreens\ManageTimetable.Designer.cs">
+    <Compile Include="AdminScreens\Manage Timetable\ManageTimetable.Designer.cs">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods.cs" />
@@ -111,16 +130,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminScreens\Manage Groups\ManageGroups.resx">
+      <DependentUpon>ManageGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminScreens\Manage Timetable\AddLessonForGroup.resx">
+      <DependentUpon>AddLessonForGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminScreens\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminScreens\EditLessonForTeacher.resx">
+    <EmbeddedResource Include="AdminScreens\Manage Timetable\AddLessonForTeacher.resx">
+      <DependentUpon>AddLessonForTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminScreens\Manage Timetable\EditLessonForGroup.resx">
+      <DependentUpon>EditLessonForGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminScreens\Manage Timetable\EditLessonForTeacher.resx">
       <DependentUpon>EditLessonForTeacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminScreens\EditPeriod.resx">
-      <DependentUpon>EditPeriod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminScreens\ManageTimetable.resx">
+    <EmbeddedResource Include="AdminScreens\Manage Timetable\ManageTimetable.resx">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherScreens\CurrentClass.resx">
