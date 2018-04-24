@@ -59,5 +59,45 @@ namespace GystClient.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Confirm {
+            get {
+                object obj = ResourceManager.GetObject("Confirm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditPencil {
+            get {
+                object obj = ResourceManager.GetObject("EditPencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout_red {
+            get {
+                object obj = ResourceManager.GetObject("logout_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username=&apos;&apos;;
+        ///Password=&apos;&apos;;.
+        /// </summary>
+        internal static string SavedCredentials {
+            get {
+                return ResourceManager.GetString("SavedCredentials", resourceCulture);
+            }
+        }
     }
 }

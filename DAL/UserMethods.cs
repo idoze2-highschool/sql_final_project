@@ -26,11 +26,10 @@ namespace DALOrg
         #region Students
         public static DataRowCollection GetStudentsOfGroup(int GroupID)
         {
-            string expr = string.Format("PARAMETERS ID Short = {0}; SELECT * FROM GetStudentsByGroupID", GroupID);
+            string expr = string.Format("SELECT * FROM GetStudentsByGroup WHERE GetStudentsByGroup.[GroupID] = {0}", GroupID);
             DataTable Data = OledbHelper.GetTable(expr);
             return Data.Rows;
         }
-        
         #endregion
         #region Teachers
         public static DataRowCollection GetTeachers()
@@ -76,22 +75,26 @@ namespace DALOrg
             DataTable data = OledbHelper.GetTable(expr);
             return data.Rows;
         }
-        public static DataRowCollection GetCourseToGroups(int courseID)
-        {
-            string expr = String.Format("SELECT * FROM GetCourseToGroup Where CourseID = {0}", courseID);
-            DataTable data = OledbHelper.GetTable(expr);
-            return data.Rows;
-        }
         public static DataRowCollection GetCourseToAvailableGroups(int courseID, int day, int period)
         {
             string expr = String.Format("SELECT GetCourseToGroup.[GroupID],GetCourseToGroup.[GroupName] FROM GetCourseToGroup WHERE (((GetCourseToGroup.[GroupID]) Not In (SELECT MainGroupID FROM GetLessonsOfGroupMembers WHERE (Day = {1} AND Period = {2}))) AND (GetCourseToGroup.[CourseID])={0});", courseID, day, period);
             DataTable data = OledbHelper.GetTable(expr);
             return data.Rows;
         }
-        public static DataRow GetCourse(int GroupID)
+        public static DataRow GetCourseOfGroup(int GroupID)
         {
             string expr = string.Format("SELECT * FROM GetCourseToGroup WHERE (GetCourseToGroup.[GroupID] = {0})", GroupID);
             return OledbHelper.GetTable(expr).Rows[0];
+        }
+        public static string GetCourseName(int CourseID)
+        {
+            string expr = string.Format("SELECT Course.[CourseName] FROM Course WHERE (Course.[CourseID] = {0})", CourseID);
+            return (string)OledbHelper.GetTable(expr).Rows[0][0];
+        }
+        public static int GetCourseGrade(int CourseID)
+        {
+            string expr = string.Format("SELECT Course.[Grade] From Course Where (Course.[CourseID] = {0})",CourseID);
+            return (int)OledbHelper.GetTable(expr).Rows[0][0];
         }
         #endregion
         #region Lesson
@@ -116,6 +119,9 @@ namespace DALOrg
             DataTable data = OledbHelper.GetTable(expr);
             return data.Rows;
         }
+
+        
+
         /// <summary>
         /// Returns A Collection Of Lesson To Group Relations.
         /// Fields: TeacherID, Teacher.FName, Teacher.LName, Lesson.LessonID, Lesson.Day, Lesson.Period, Groups.GroupName, Groups.GroupName, Subjects.SubjectName 
@@ -131,15 +137,28 @@ namespace DALOrg
         }
         #endregion
         #region Group
+        public static DataRowCollection GetGroupsOfCourse(int CourseID)
+        {
+            string expr = String.Format("SELECT * FROM GetCourseToGroup Where CourseID = {0}", CourseID);
+            DataTable data = OledbHelper.GetTable(expr);
+            return data.Rows;
+        }
         public static string GetGroupName(int GroupID)
         {
             string expr = string.Format("SELECT Groups.[GroupName] From Groups WHERE (Groups.[GroupID] = {0});",GroupID);
-            return (string)OledbHelper.GetTable(expr).Rows[0]["GroupName"];
+            return (string)OledbHelper.GetTable(expr).Rows[0][0];
         }
         public static bool IsGroupAvailable(int groupID, int day, int period)
         {
             string expr = string.Format("SELECT Count(GetLessonsByGroup.LessonID) AS LessonCount FROM GetLessonsByGroup HAVING (GetLessonsByGroup.[GroupID]={0}) AND (GetLessonsByGroup.[Day]={1}) AND (GetLessonsByGroup.[Period]={2});", groupID, day, period);
             return ((int)OledbHelper.GetTable(expr).Rows[0]["LessonCount"]) == 0;
+        }
+        #endregion
+        #region Grade
+        public static DataRow GetTeacherToMinAndMaxGrades(int TeacherID)
+        {
+            string expr = String.Format("SELECT Min,Max FROM GetTeacherToMinAndMaxGrades WHERE TeacherID = {0}",TeacherID);
+            return OledbHelper.GetTable(expr).Rows[0];
         }
         #endregion
         #endregion
@@ -186,11 +205,27 @@ namespace DALOrg
         }
         #endregion
         #region Update
+        #region Lesson
         public static void UpdateLesson(int LessonID, int TeacherID, int GroupID, int SubjectID, int Day, int Period)
         {
             string expr = string.Format("UPDATE Lessons SET Lessons.GroupID = {1}, Lessons.TeacherID = {2}, Lessons.SubjectID = {3}, Lessons.[Day] = {4}, Lessons.Period = {5} WHERE (((Lessons.LessonID)={0}));", LessonID, GroupID, TeacherID, SubjectID, Day, Period);
             OledbHelper.Execute(expr);
         }
+        #endregion
+        #region Group
+        //Update A Group's GroupName
+        public static void UpdateGroup(int GroupID, string GroupName)
+        {
+            string expr = string.Format("UPDATE Groups SET Groups.GroupName = '{1}' WHERE (((Groups.GroupID)={0}));", GroupID, GroupName);
+            OledbHelper.Execute(expr);
+        }
+        //Update A Group's CourseID
+        public static void UpdateGroup(int GroupID, int CourseID)
+        {
+            string expr = string.Format("UPDATE Groups SET Groups.CourseID = {1} WHERE (((Groups.GroupID)={0}));", GroupID, CourseID);
+            OledbHelper.Execute(expr);
+        }
+        #endregion
         #endregion
         #region Remove
         /// <summary>
@@ -206,3 +241,4 @@ namespace DALOrg
         #endregion
     }
 }
+

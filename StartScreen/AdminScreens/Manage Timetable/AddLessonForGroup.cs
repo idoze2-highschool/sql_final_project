@@ -38,7 +38,7 @@ namespace GystClient.AdminScreens.Manage_Timetable
             CreateDayLabel();
             this.Period = Period;
             this.GroupID = GroupID;
-            DataRow Course = DAL.UserMethods.GetCourse(GroupID);
+            DataRow Course = DAL.UserMethods.GetCourseOfGroup(GroupID);
             CourseID = (int)Course["CourseID"];
             CourseName = (string)Course["CourseName"];
             CreateCourseLabel();

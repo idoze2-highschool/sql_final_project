@@ -37,6 +37,7 @@ namespace GystClient.AdminScreens
         {
             Manage_Groups.ManageGroups form = new Manage_Groups.ManageGroups();
             form.FormClosed += (object s, FormClosedEventArgs ev) => { Show(); };
+            this.AddOwnedForm(form);
             form.Show();
             Hide();
         }

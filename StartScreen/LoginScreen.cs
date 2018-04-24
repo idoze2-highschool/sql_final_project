@@ -39,7 +39,6 @@ namespace GystClient
                 label_InvalidLogin.Visible = true;
             }
         }
-
         private bool Login(string Username, string Password)
         {
             //TODO

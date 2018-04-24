@@ -12,14 +12,10 @@ namespace WCF
     [ServiceContract]
     public interface IService1
     {
-
         [OperationContract]
         string GetData(int value);
-
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
-
-
         // TODO: Add your service operations here
     }
 
@@ -30,14 +26,12 @@ namespace WCF
     {
         bool boolValue = true;
         string stringValue = "Hello ";
-
         [DataMember]
         public bool BoolValue
         {
             get { return boolValue; }
             set { boolValue = value; }
         }
-
         [DataMember]
         public string StringValue
         {

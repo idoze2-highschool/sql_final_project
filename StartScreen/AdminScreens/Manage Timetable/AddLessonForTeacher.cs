@@ -19,8 +19,8 @@ namespace GystClient.AdminScreens.Manage_Timetable
         {
             InitializeComponent();
             #region Hook Data Loading Queue
-            numericUpDown_period.ValueChanged += (object sender, EventArgs e) => { this.Period = (int)numericUpDown_period.Value; CreateTeacherLabel(); LoadGrades(); };
-            numericUpDown_grade.ValueChanged += (object sender, EventArgs e) => { Grade = (int)numericUpDown_grade.Value; LoadCourses(); };
+            numericUpDown_period.ValueChanged += (object sender, EventArgs e) => {this.Period = (int)numericUpDown_period.Value; CreateTeacherLabel(); LoadGrades();};
+            numericUpDown_grade.ValueChanged += (object sender, EventArgs e) => {Grade = (int)numericUpDown_grade.Value; LoadCourses();};
             comboBox_Course.SelectedIndexChanged += (object sender, EventArgs e) => { CourseID = CourseIndexToID[comboBox_Course.SelectedIndex]; LoadGroups(); };
             comboBox_Group.SelectedIndexChanged += (object sender, EventArgs e) => { GroupID = GroupIndexToID[comboBox_Group.SelectedIndex]; LoadSubjects(); };
             #endregion
@@ -47,22 +47,14 @@ namespace GystClient.AdminScreens.Manage_Timetable
         }
         private void LoadGrades()
         {
-            bool First = true;
-            foreach (DataRow Course in DAL.UserMethods.GetCourseToTeacher(TeacherID))
+            DataRow GradeMinMax = DAL.UserMethods.GetTeacherToMinAndMaxGrades(TeacherID);
+            numericUpDown_grade.Minimum = (int)GradeMinMax["Min"];
+            numericUpDown_grade.Maximum = (int)GradeMinMax["Max"];
+            if (Grade!= (int)numericUpDown_grade.Value)
             {
-                int Grade = (int)Course["Grade"];
-                if (First)
-                {
-                    numericUpDown_grade.Maximum = Grade;
-                    numericUpDown_grade.Minimum = Grade;
-                    First = false;
-                }
-                if (Grade > numericUpDown_grade.Maximum)
-                    numericUpDown_grade.Maximum = Grade;
-                else if (Grade < numericUpDown_grade.Minimum)
-                    numericUpDown_grade.Minimum = Grade;
+                Grade = (int)numericUpDown_grade.Value;
+                LoadCourses();
             }
-
         }
         private void LoadCourses()
         {
@@ -73,7 +65,6 @@ namespace GystClient.AdminScreens.Manage_Timetable
             {
              comboBox_Course.Items.Add((string)Course["CourseName"] + " Course");
              CourseIndexToID[comboBox_Course.Items.Count - 1] = (int)Course["CourseID"];
-             comboBox_Course.SelectedIndex = 0;
             }
             comboBox_Course.SelectedIndex = 0;
         }
@@ -92,7 +83,11 @@ namespace GystClient.AdminScreens.Manage_Timetable
             {
                 comboBox_Group.SelectedIndex = 0;
             }
-            catch { button_add.Enabled = false; }
+            catch {
+                comboBox_Group.SelectedText = "No Groups Available";
+                comboBox_Subject.SelectedText = "";
+                button_add.Enabled = false;
+            }
         }
         private void LoadSubjects()
         {

@@ -76,7 +76,7 @@
             this.textBox_Username.Location = new System.Drawing.Point(231, 107);
             this.textBox_Username.Name = "textBox_Username";
             this.textBox_Username.Size = new System.Drawing.Size(94, 22);
-            this.textBox_Username.TabIndex = 0;
+            this.textBox_Username.TabIndex = 1;
             this.textBox_Username.Text = "admin";
             this.textBox_Username.TextChanged += new System.EventHandler(this.textBox_Username_TextChanged);
             // 
