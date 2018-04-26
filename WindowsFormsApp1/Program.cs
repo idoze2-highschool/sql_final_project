@@ -27,7 +27,7 @@ namespace Client
             else
             {
                 user = new User(DALOrg.UserMethods.GetUser(Properties.Settings.Default.SavedUsername, Properties.Settings.Default.SavedPassword));
-                Application.Run(new Dashboard());
+                Application.Run(new Components.Admin_UI.AdminDashboard());
             }
         }
     }

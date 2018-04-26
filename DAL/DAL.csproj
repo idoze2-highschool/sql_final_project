@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\Filter.cs" />
     <Compile Include="Component\User.cs" />
     <Compile Include="oledbhelper.cs" />
     <Compile Include="Program.cs" />

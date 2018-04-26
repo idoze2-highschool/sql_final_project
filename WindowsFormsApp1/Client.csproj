@@ -54,28 +54,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashbo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dashbo.Designer.cs">
-      <DependentUpon>Dashbo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="table.cs">
+    <Compile Include="Components\Admin UI\Courses\View Courses\ViewCourses.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="table.Designer.cs">
-      <DependentUpon>table.cs</DependentUpon>
+    <Compile Include="Components\Admin UI\Courses\View Courses\ViewCourses.Designer.cs">
+      <DependentUpon>ViewCourses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Timetable.cs">
+    <Compile Include="Components\Admin UI\Dashboard\LandingPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Timetable.Designer.cs">
+    <Compile Include="Components\Admin UI\Dashboard\LandingPage.Designer.cs">
+      <DependentUpon>LandingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin UI\AdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\Admin UI\AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin UI\Groups\View Groups\ViewGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin UI\Groups\View Groups\ViewGroups.Designer.cs">
+      <DependentUpon>ViewGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin UI\Subjects\View Subjects\ViewSubjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin UI\Subjects\View Subjects\ViewSubjects.Designer.cs">
+      <DependentUpon>ViewSubjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin UI\Users\View Users\ViewUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin UI\Users\View Users\ViewUsers.Designer.cs">
+      <DependentUpon>ViewUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Base\Component.cs" />
+    <Compile Include="Components\Base\DataFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Base\DataFilter.Designer.cs">
+      <DependentUpon>DataFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods.cs" />
+    <Compile Include="Components\Base\Timetable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Base\Timetable.Designer.cs">
       <DependentUpon>Timetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -86,16 +118,31 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <EmbeddedResource Include="Dashbo.resx">
-      <DependentUpon>Dashbo.cs</DependentUpon>
+    <EmbeddedResource Include="Components\Admin UI\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Components\Admin UI\Courses\View Courses\ViewCourses.resx">
+      <DependentUpon>ViewCourses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="table.resx">
-      <DependentUpon>table.cs</DependentUpon>
+    <EmbeddedResource Include="Components\Admin UI\Dashboard\LandingPage.resx">
+      <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Timetable.resx">
+    <EmbeddedResource Include="Components\Admin UI\Groups\View Groups\ViewGroups.resx">
+      <DependentUpon>ViewGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin UI\Subjects\View Subjects\ViewSubjects.resx">
+      <DependentUpon>ViewSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin UI\Users\View Users\ViewUsers.resx">
+      <DependentUpon>ViewUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Base\DataFilter.resx">
+      <DependentUpon>DataFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Base\Timetable.resx">
       <DependentUpon>Timetable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -139,6 +186,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Royalblue.Jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\Admin UI\Courses\Create Course\" />
+    <Folder Include="Components\Admin UI\Groups\Create Group\" />
+    <Folder Include="Components\Admin UI\Subjects\Create Subject\" />
+    <Folder Include="Components\Admin UI\Users\Create User\" />
+    <Folder Include="Components\Teacher UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colored-pencils.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

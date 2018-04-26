@@ -64,9 +64,9 @@ namespace Client.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\idoze\\Desktop\\Project\\Gyst" +
             "\\DAL\\DB.accdb;Persist Security Info=True")]
-        public string TimeTable {
+        public string ViewUsers {
             get {
-                return ((string)(this["TimeTable"]));
+                return ((string)(this["ViewUsers"]));
             }
         }
     }

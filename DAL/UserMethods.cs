@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
+using DALOrg.Component;
 
 namespace DALOrg
 {
@@ -51,7 +52,7 @@ namespace DALOrg
             DataTable data = OledbHelper.GetTable(expr);
             return data.Rows;
         }
-        public static DataRowCollection GetCourseToAvailableTeachers(int Day, int Period,int CourseID)
+        public static DataRowCollection GetCourseToAvailableTeachers(int Day, int Period, int CourseID)
         {
             string expr = String.Format("SELECT [Users].[FName] & ' ' & [Users].[LName] AS Name, Users.[UserID] AS TeacherID FROM Users INNER JOIN GetTeacherToCourse ON Users.UserID = GetTeacherToCourse.TeacherID WHERE (((GetTeacherToCourse.TeacherID) Not In (SELECT GetLessonsByTeacher.[TeacherID] FROM  GetLessonsByTeacher WHERE (((GetLessonsByTeacher.[Day])={1})) AND ((GetLessonsByTeacher.[Period])={2}))) AND ((GetTeacherToCourse.CourseID)={0}));", CourseID, Day, Period);
             DataTable data = OledbHelper.GetTable(expr);
@@ -93,7 +94,7 @@ namespace DALOrg
         }
         public static int GetCourseGrade(int CourseID)
         {
-            string expr = string.Format("SELECT Course.[Grade] From Course Where (Course.[CourseID] = {0})",CourseID);
+            string expr = string.Format("SELECT Course.[Grade] From Course Where (Course.[CourseID] = {0})", CourseID);
             return (int)OledbHelper.GetTable(expr).Rows[0][0];
         }
         #endregion
@@ -120,7 +121,7 @@ namespace DALOrg
             return data.Rows;
         }
 
-        
+
 
         /// <summary>
         /// Returns A Collection Of Lesson To Group Relations.
@@ -145,7 +146,7 @@ namespace DALOrg
         }
         public static string GetGroupName(int GroupID)
         {
-            string expr = string.Format("SELECT Groups.[GroupName] From Groups WHERE (Groups.[GroupID] = {0});",GroupID);
+            string expr = string.Format("SELECT Groups.[GroupName] From Groups WHERE (Groups.[GroupID] = {0});", GroupID);
             return (string)OledbHelper.GetTable(expr).Rows[0][0];
         }
         public static bool IsGroupAvailable(int groupID, int day, int period)
@@ -157,8 +158,31 @@ namespace DALOrg
         #region Grade
         public static DataRow GetTeacherToMinAndMaxGrades(int TeacherID)
         {
-            string expr = String.Format("SELECT Min,Max FROM GetTeacherToMinAndMaxGrades WHERE TeacherID = {0}",TeacherID);
+            string expr = String.Format("SELECT Min,Max FROM GetTeacherToMinAndMaxGrades WHERE TeacherID = {0}", TeacherID);
             return OledbHelper.GetTable(expr).Rows[0];
+        }
+        #endregion
+        #region Filtered Table
+        public static DataTable GetFilteredTable(string TableName, string[] Columns, FilterCollection Filters)
+        {
+            string[] Conditions = Filters.GetConditions();
+            #region Format Conditions To Easily Chain Them.
+            //Format Conditions To Easily Chain Them.
+            //Formats The Last Condition To "(ConditionString)"
+            //Formats The Other Conditions To "(ConditionString) AND "
+            Conditions = Conditions.Select(
+                C => //Initializes Variable string C - Current Condition
+                (C == Conditions.Last()) //Sets a boolean Expression that checks if C is the Last Condition
+                ? string.Format("({0})", C) //If Expression is true
+                : string.Format("({0}) AND ", C) //If Expression is false
+                ).ToArray(); 
+            #endregion
+            string expr = string.Format("Select * From {0} Where ({1});", TableName, Conditions);
+            return OledbHelper.GetTable(expr);
+        }
+        public static DataTable GetFilteredTable(string TableName, string[] Columns, params Filter[] Filters)
+        {
+            return GetFilteredTable(TableName, Columns, new FilterCollection(Filters));
         }
         #endregion
         #endregion
@@ -200,7 +224,7 @@ namespace DALOrg
         }
         public static void AddLesson(int TeacherID, int GroupID, int SubjectID, int Day, int Period)
         {
-            string Expr = string.Format("INSERT INTO Lessons ([TeacherID],[GroupID],[SubjectID],[Day],[Period]) Values ({0},{1},{2},{3},{4})",TeacherID,GroupID,SubjectID,Day,Period);
+            string Expr = string.Format("INSERT INTO Lessons ([TeacherID],[GroupID],[SubjectID],[Day],[Period]) Values ({0},{1},{2},{3},{4})", TeacherID, GroupID, SubjectID, Day, Period);
             OledbHelper.Execute(Expr);
         }
         #endregion
