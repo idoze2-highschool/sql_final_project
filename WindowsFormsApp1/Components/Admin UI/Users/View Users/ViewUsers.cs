@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Client.Components.Base;
 
 namespace Client.Components.Admin_UI.Users
 {
@@ -15,7 +16,13 @@ namespace Client.Components.Admin_UI.Users
         public ViewUsers()
         {
             InitializeComponent();
-            dataFilter1.SetComponentType(Base.Component.User);
+            FilterSelector.SetComponentType(Base.Component.User);
+            LoadResults();
+            FilterSelector.button_Add.Click += (object sender, EventArgs e) => { LoadResults(); };
+        }
+        public void LoadResults()
+        {
+            ResultGrid.DataSource = FilterSelector.GetTable();
         }
         
     }

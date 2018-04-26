@@ -9,7 +9,7 @@ namespace GystClient
 {
     static class Program
     {
-        public static DAL.Component.User user;
+        public static DAL.Components.User user;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

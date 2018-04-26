@@ -91,11 +91,11 @@
       <DependentUpon>ViewUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Base\Component.cs" />
-    <Compile Include="Components\Base\DataFilter.cs">
+    <Compile Include="Components\Base\DataFilterSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Base\DataFilter.Designer.cs">
-      <DependentUpon>DataFilter.cs</DependentUpon>
+    <Compile Include="Components\Base\DataFilterSelector.Designer.cs">
+      <DependentUpon>DataFilterSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     <EmbeddedResource Include="Components\Admin UI\Users\View Users\ViewUsers.resx">
       <DependentUpon>ViewUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Base\DataFilter.resx">
-      <DependentUpon>DataFilter.cs</DependentUpon>
+    <EmbeddedResource Include="Components\Base\DataFilterSelector.resx">
+      <DependentUpon>DataFilterSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

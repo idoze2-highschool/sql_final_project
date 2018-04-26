@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.ResultGrid = new System.Windows.Forms.DataGridView();
-            this.UID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataFilter1 = new Client.Components.Base.DataFilter();
+            this.FilterSelector = new Client.Components.Base.DataFilterSelector();
             ((System.ComponentModel.ISupportInitialize)(this.ResultGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,41 +40,12 @@
             this.ResultGrid.AllowUserToAddRows = false;
             this.ResultGrid.AllowUserToDeleteRows = false;
             this.ResultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ResultGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UID,
-            this.UName,
-            this.UType});
             this.ResultGrid.Location = new System.Drawing.Point(0, 42);
             this.ResultGrid.Margin = new System.Windows.Forms.Padding(0);
             this.ResultGrid.Name = "ResultGrid";
             this.ResultGrid.ReadOnly = true;
-            this.ResultGrid.Size = new System.Drawing.Size(226, 45);
+            this.ResultGrid.Size = new System.Drawing.Size(277, 176);
             this.ResultGrid.TabIndex = 0;
-            // 
-            // UID
-            // 
-            this.UID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.UID.HeaderText = "ID";
-            this.UID.Name = "UID";
-            this.UID.ReadOnly = true;
-            this.UID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.UID.Width = 43;
-            // 
-            // UName
-            // 
-            this.UName.FillWeight = 20F;
-            this.UName.HeaderText = "Name";
-            this.UName.Name = "UName";
-            this.UName.ReadOnly = true;
-            this.UName.Width = 83;
-            // 
-            // UType
-            // 
-            this.UType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.UType.HeaderText = "Type";
-            this.UType.Name = "UType";
-            this.UType.ReadOnly = true;
-            this.UType.Width = 56;
             // 
             // label1
             // 
@@ -99,19 +67,19 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Filter: ";
             // 
-            // dataFilter1
+            // FilterSelector
             // 
-            this.dataFilter1.AutoSize = true;
-            this.dataFilter1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.dataFilter1.BackColor = System.Drawing.Color.Transparent;
-            this.dataFilter1.Location = new System.Drawing.Point(280, 0);
-            this.dataFilter1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataFilter1.Name = "dataFilter1";
-            this.dataFilter1.Size = new System.Drawing.Size(251, 156);
-            this.dataFilter1.TabIndex = 1;
-            this.dataFilter1.UseCustomBackColor = true;
-            this.dataFilter1.UseCustomForeColor = true;
-            this.dataFilter1.UseSelectable = true;
+            this.FilterSelector.AutoSize = true;
+            this.FilterSelector.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FilterSelector.BackColor = System.Drawing.Color.Transparent;
+            this.FilterSelector.Location = new System.Drawing.Point(280, 0);
+            this.FilterSelector.Margin = new System.Windows.Forms.Padding(0);
+            this.FilterSelector.Name = "FilterSelector";
+            this.FilterSelector.Size = new System.Drawing.Size(251, 156);
+            this.FilterSelector.TabIndex = 1;
+            this.FilterSelector.UseCustomBackColor = true;
+            this.FilterSelector.UseCustomForeColor = true;
+            this.FilterSelector.UseSelectable = true;
             // 
             // ViewUsers
             // 
@@ -119,7 +87,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataFilter1);
+            this.Controls.Add(this.FilterSelector);
             this.Controls.Add(this.ResultGrid);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ViewUsers";
@@ -135,10 +103,7 @@
 
         private System.Windows.Forms.DataGridView ResultGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn _Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UType;
-        private Base.DataFilter dataFilter1;
+        private Base.DataFilterSelector FilterSelector;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

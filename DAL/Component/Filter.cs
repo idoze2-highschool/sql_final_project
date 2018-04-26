@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DALOrg.Component
+namespace DALOrg.Components
 {
     public class Filter
     {
@@ -19,9 +19,13 @@ namespace DALOrg.Component
             this.AcceptType = AcceptType;
             valueSet = false;
         }
-        public bool SetValue(string CheckValue, string FormatValue)
+        private Filter(Filter Filter) : this(Filter.Name, Filter.Query, Filter.Format, Filter.AcceptType)
         {
-            if (TrySetValue(CheckValue))
+
+        }
+        internal bool SetValue(string CheckValue, string FormatValue)
+        {
+            if (IsAcceptableValue(CheckValue))
             {
                 ValueSet = true;
                 Query = Query.Replace("[CheckValue]", CheckValue.ToString());
@@ -31,7 +35,7 @@ namespace DALOrg.Component
                 return false;
             return true;
         }
-        private bool TrySetValue(string Value)
+        private bool IsAcceptableValue(string Value)
         {
             try
             {
@@ -48,6 +52,13 @@ namespace DALOrg.Component
         public string Format { get => format; private set => format = value; }
         internal bool ValueSet { get => valueSet; private set => valueSet = value; }
         private Type AcceptType { get => acceptType; set => acceptType = value; }
+        public static Filter CloneWithValue(Filter Filter, string CheckValue, string FormatValue)
+        {
+            Filter newFilter = new Filter(Filter);
+            if (newFilter.SetValue(CheckValue, FormatValue))
+                return newFilter;
+            return Filter;
+        }
         public override string ToString()
         {
             return Name;
@@ -56,68 +67,115 @@ namespace DALOrg.Component
     public class FilterCollection
     {
         private List<Filter> Filters;
+        private int Count = 0;
         public FilterCollection()
         {
             Filters = new List<Filter>();
         }
-        internal FilterCollection(params Filter[] Filters)
+        public FilterCollection(params Filter[] Filters) : this()
         {
             this.Filters.AddRange(Filters);
         }
+        public void Add(Filter Filter, bool SetValue)
+        {
+            if ((Filter.ValueSet) == SetValue)
+            {
+                Add(Filter);
+            }
+        }
+        //Base Method
         public void Add(Filter Filter)
         {
+            Count++;
             Filters.Add(Filter);
         }
-        public bool TrySetValue(int Index, string Value, string FormatValue)
+        public Filter Remove(int Index)
         {
-            return Filters[Index].SetValue(Value, FormatValue);
+            Filter Filter;
+            try
+            {
+              Filter = Filters[Index];
+                Filters.RemoveAt(Index);
+                Count--;
+            }
+            catch
+            {
+                return Components.Filters.NullFilter;
+            }
+            
+            return Filter;
+
         }
-        public string[] GetConditions()
+        public string[] GetQueries()
         {
-            return Filters.Select(F => F.Query).ToArray();
+            return Filters.Where(F => F.ValueSet).Select(F => F.Query).ToArray();
+        }
+        public string[] GetNames()
+        {
+            return Filters.Select(F => F.Name).ToArray();
+        }
+        public string[] GetFilterFormats()
+        {
+            return Filters.Where(F => F.ValueSet).Select(F => F.Format).ToArray();
         }
     }
     #region Static Classes
     public static class Filters
     {
+        #region NullFilter
+        public static readonly Filter NullFilter = new Filter(
+            "NullFilter",
+            "",
+            "NullFilter",
+            typeof(string)
+            );
+        #endregion
         #region User Filters
         public static class User
         {
-            public static Filter InGroup = new Filter(
+            public static readonly Filter InGroup = new Filter(
                 "InGroup",
-                "[UserID] in (SELECT StudentToGroup.[StudentID] as UserID FROM StudentToGroup WHERE (StudentToGroup.[GroupID] = [CheckValue]))",
+                "Users.[UserID] in (SELECT StudentToGroup.[StudentID] as UserID FROM StudentToGroup WHERE (StudentToGroup.[GroupID] = [CheckValue]))",
                 "InGroup: " + "[FormatValue]",
                 typeof(int)
                 );
-            public static Filter Type = new Filter(
+            public static readonly Filter Type = new Filter(
                 "Type",
-                "[UserType] = [CheckValue]",
+                "Users.[UserType] = [CheckValue]",
                 "Type: " + "[FormatValue]",
                 typeof(int)
                 );
-            public static Filter FNameLike = new Filter(
+            public static readonly Filter FNameLike = new Filter(
                 "FName Like",
-                "[FName] Like %[CheckValue]%",
+                "Users.[FName] Like %[CheckValue]%",
                 "FName-%[FormatValue]%",
                 typeof(string)
                 );
-            public static Filter LNameLike = new Filter(
+            public static readonly Filter LNameLike = new Filter(
                 "LName Like",
-                "[LName] Like %[CheckValue]%",
+                "Users.[LName] Like %[CheckValue]%",
                 "LName-%[FormatValue]%",
                 typeof(string)
                 );
         }
         #endregion
+        #region Course Filters
+        public static class Course
+        {
+        }
+        #endregion
     }
     public static class FilterCollections
     {
-        public static FilterCollection UserFilters = new FilterCollection(
+        public static readonly FilterCollection NullFilterCollection = new FilterCollection();
+        public static readonly FilterCollection UserFilters = new FilterCollection(
             Filters.User.InGroup,
             Filters.User.Type,
             Filters.User.FNameLike,
             Filters.User.LNameLike
             );
+        public static readonly FilterCollection CourseFilters = new FilterCollection(
+            ); 
     }
     #endregion
 }
