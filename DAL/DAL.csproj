@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Component\Filter.cs" />
+    <Compile Include="Component\Filters.cs" />
     <Compile Include="Component\User.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="oledbhelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DALOrg.Components;
+using DAL.Component;
 
 namespace Client.Components.Base
 {
     public enum Component
     {
+        User,
         Course,
         Group,
-        Subject,
-        User
+        Subject
     }
     public static class ComponentMethods
     {

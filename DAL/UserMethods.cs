@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
-using DALOrg.Components;
+using DAL.Component;
 
-namespace DALOrg
+namespace DAL
 {
     public static class UserMethods
     {
         #region Data Pulling
         #region User
-        public static Components.User GetUser(string username, string password)
+        public static Component.User GetUser(string username, string password)
         {
             DataTable Data = OledbHelper.GetTable("Select * From Users Where UName='" + username + "' AND PWord='" + password + "'");
             DataRow DataR = Data.Rows[0];
-            return new Components.User(int.Parse(DataR["UserID"].ToString()), DataR["FName"].ToString(), DataR["LName"].ToString(), int.Parse(DataR["UserType"].ToString()));
+            return new Component.User(int.Parse(DataR["UserID"].ToString()), DataR["FName"].ToString(), DataR["LName"].ToString(), int.Parse(DataR["UserType"].ToString()));
         }
         public static string GetNameOfUser(int UserID)
         {
@@ -162,62 +162,7 @@ namespace DALOrg
             return OledbHelper.GetTable(expr).Rows[0];
         }
         #endregion
-        #region Filtered Table
-        public static DataTable GetFilteredTable(string TableName, string[] Columns, params Filter[] Filters)
-        {
-            return GetFilteredTable(TableName, Columns, new FilterCollection(Filters));
-        }
-        //base method
-        public static DataTable GetFilteredTable(string TableName, string[] Columns, FilterCollection Filters)
-        {
-            //Format an Expression:
-            // Handle Columns Part
-            #region Format Columns To an SQL Select-Cmpatible Format
-            //Form
-            Columns = Columns.Select(
-                C => //Initializes Variable string C - Current Column 
-                string.Format("{0}.{1}", TableName, C) + (
-                (C == Columns.Last())//Setsa boolean Expression that checks if C is the Last Column
-                ? ""//If Expression is true add a blank string (Do nothing)
-                : "," //If Expression is false add ","
-                ) + " "
-                ).ToArray();
-            #endregion
-            #region Create ColumnsString
-            string ColumnsString = "";
-            foreach (string Column in Columns) { ColumnsString += Column; }
-            string expr = string.Format("SELECT {0}", ColumnsString); 
-            #endregion
-            // Handle TableName Part
-            expr += string.Format(" FROM {0}", TableName);
-            // Handle Conditions Part
-            string[] Conditions = Filters.GetQueries();
-            if (Conditions.Count() > 0)
-            {
-                #region Format Conditions To an SQL Condition Format
-                //Format Conditions To Easily Chain Them.
-                //Formats The Last Condition To "(ConditionString)"
-                //Formats The Other Conditions To "(ConditionString) AND "
-                Conditions = Conditions.Select(
-                    C => //Initializes Variable string C - Current Condition
-                    string.Format("({0})", C) + (
-                    ((C == Conditions.Last())) //Sets a boolean Expression that checks if C is the Last Condition
-                    ? "" //If Expression is true add a blank string (Do nothing),
-                    : " AND " //If Expression is false add " AND ".
-                    )
-                    ).ToArray();
-                #endregion
-                #region Create ConditionsString
-                string ConditionsString = "";
-                foreach (string Condition in Conditions) { ConditionsString += Condition; }
-                expr += string.Format(" WHERE ({0})", ConditionsString); 
-                #endregion
-            }
-            // Close expression With a Semicolon
-            expr += ";";
-            return OledbHelper.GetTable(expr);
-        }
-        #endregion
+        
         #endregion
         #region Data Validation
         public static bool UserExists(string Username, string Password)

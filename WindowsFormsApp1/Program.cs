@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DALOrg.Components;
+using DAL.Component;
 
 namespace Client
 {
@@ -26,7 +26,7 @@ namespace Client
             }
             else
             {
-                user = new User(DALOrg.UserMethods.GetUser(Properties.Settings.Default.SavedUsername, Properties.Settings.Default.SavedPassword));
+                user = new User(DAL.UserMethods.GetUser(Properties.Settings.Default.SavedUsername, Properties.Settings.Default.SavedPassword));
                 Application.Run(new Components.Admin_UI.AdminDashboard());
             }
         }

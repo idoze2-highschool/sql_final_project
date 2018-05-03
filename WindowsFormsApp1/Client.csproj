@@ -54,47 +54,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Admin UI\Courses\View Courses\ViewCourses.cs">
+    <Compile Include="Components\Admin_UI\Courses\View Courses\ViewCourses.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Admin UI\Courses\View Courses\ViewCourses.Designer.cs">
+    <Compile Include="Components\Admin_UI\Courses\View Courses\ViewCourses.Designer.cs">
       <DependentUpon>ViewCourses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Admin UI\Dashboard\LandingPage.cs">
+    <Compile Include="Components\Admin_UI\Dashboard\LandingPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Admin UI\Dashboard\LandingPage.Designer.cs">
+    <Compile Include="Components\Admin_UI\Dashboard\LandingPage.Designer.cs">
       <DependentUpon>LandingPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Admin UI\AdminDashboard.cs">
+    <Compile Include="Components\Admin_UI\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Components\Admin UI\AdminDashboard.Designer.cs">
+    <Compile Include="Components\Admin_UI\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Admin UI\Groups\View Groups\ViewGroups.cs">
+    <Compile Include="Components\Admin_UI\Groups\View Groups\ViewGroups.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Admin UI\Groups\View Groups\ViewGroups.Designer.cs">
+    <Compile Include="Components\Admin_UI\Groups\View Groups\ViewGroups.Designer.cs">
       <DependentUpon>ViewGroups.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Admin UI\Subjects\View Subjects\ViewSubjects.cs">
+    <Compile Include="Components\Admin_UI\Subjects\View Subjects\ViewSubjects.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Admin UI\Subjects\View Subjects\ViewSubjects.Designer.cs">
+    <Compile Include="Components\Admin_UI\Subjects\View Subjects\ViewSubjects.Designer.cs">
       <DependentUpon>ViewSubjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\Admin UI\Users\View Users\ViewUsers.cs">
+    <Compile Include="Components\Admin_UI\Users\Create User\CreateUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Admin UI\Users\View Users\ViewUsers.Designer.cs">
+    <Compile Include="Components\Admin_UI\Users\Create User\CreateUser.Designer.cs">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Student.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Admin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\ViewUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\ViewUsers.Designer.cs">
       <DependentUpon>ViewUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Base\Component.cs" />
-    <Compile Include="Components\Base\DataFilterSelector.cs">
+    <Compile Include="Components\Base\Controls\DataFilterSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Base\DataFilterSelector.Designer.cs">
+    <Compile Include="Components\Base\Controls\DataFilterSelector.Designer.cs">
       <DependentUpon>DataFilterSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
@@ -104,10 +122,10 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods.cs" />
-    <Compile Include="Components\Base\Timetable.cs">
+    <Compile Include="Components\Base\Controls\Timetable.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Base\Timetable.Designer.cs">
+    <Compile Include="Components\Base\Controls\Timetable.Designer.cs">
       <DependentUpon>Timetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -118,31 +136,37 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <EmbeddedResource Include="Components\Admin UI\AdminDashboard.resx">
+    <EmbeddedResource Include="Components\Admin_UI\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Admin UI\Courses\View Courses\ViewCourses.resx">
+    <EmbeddedResource Include="Components\Admin_UI\Courses\View Courses\ViewCourses.resx">
       <DependentUpon>ViewCourses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Admin UI\Dashboard\LandingPage.resx">
+    <EmbeddedResource Include="Components\Admin_UI\Dashboard\LandingPage.resx">
       <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Admin UI\Groups\View Groups\ViewGroups.resx">
+    <EmbeddedResource Include="Components\Admin_UI\Groups\View Groups\ViewGroups.resx">
       <DependentUpon>ViewGroups.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Admin UI\Subjects\View Subjects\ViewSubjects.resx">
+    <EmbeddedResource Include="Components\Admin_UI\Subjects\View Subjects\ViewSubjects.resx">
       <DependentUpon>ViewSubjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Admin UI\Users\View Users\ViewUsers.resx">
+    <EmbeddedResource Include="Components\Admin_UI\Users\View Users\Profiles\Student.resx">
+      <DependentUpon>Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Users\View Users\Profiles\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Users\View Users\ViewUsers.resx">
       <DependentUpon>ViewUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Base\DataFilterSelector.resx">
+    <EmbeddedResource Include="Components\Base\Controls\DataFilterSelector.resx">
       <DependentUpon>DataFilterSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Base\Timetable.resx">
+    <EmbeddedResource Include="Components\Base\Controls\Timetable.resx">
       <DependentUpon>Timetable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -188,11 +212,11 @@
     <None Include="Resources\Royalblue.Jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Admin UI\Courses\Create Course\" />
-    <Folder Include="Components\Admin UI\Groups\Create Group\" />
-    <Folder Include="Components\Admin UI\Subjects\Create Subject\" />
-    <Folder Include="Components\Admin UI\Users\Create User\" />
-    <Folder Include="Components\Teacher UI\" />
+    <Folder Include="Components\Admin_UI\Courses\Create Course\" />
+    <Folder Include="Components\Admin_UI\Groups\Create Group\" />
+    <Folder Include="Components\Admin_UI\Subjects\Create Subject\" />
+    <Folder Include="Components\Base\Screens\" />
+    <Folder Include="Components\Teacher_UI\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\colored-pencils.jpg" />

@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.OleDb;
 
-namespace DALOrg
+namespace DAL
 
 {
 
