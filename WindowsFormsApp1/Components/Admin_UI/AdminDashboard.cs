@@ -19,7 +19,6 @@ namespace Client.Components.Admin_UI
             InitializeMenuButtons();
             ClickButton(button_Select_Dashboard);
         }
-
         private void InitializeMenuButtons()
         {
             button_Select_Dashboard.Tag = new Dashboard.LandingPage();
@@ -28,7 +27,6 @@ namespace Client.Components.Admin_UI
             button_Select_Groups.Tag = new Groups.ViewGroups();
             button_Select_Subjects.Tag = new Subjects.ViewSubjects();
         }
-
         private void button_Close_Click(object sender, EventArgs e)
         {
             Close();
@@ -65,7 +63,16 @@ namespace Client.Components.Admin_UI
             panel_ViewArea.Controls.Add(Screen);
             panel_ViewArea.Controls[0].Focus();
         }
-
+        public void AddScreen(MetroFramework.Controls.MetroUserControl Screen)
+        {
+            panel_ViewArea.Controls[panel_ViewArea.Controls.Count - 1].Hide();
+            panel_ViewArea.Controls.Add(Screen);
+            Screen.Disposed += (object sender, EventArgs e) =>
+             {
+                 Controls.Remove(Screen);
+                 panel_ViewArea.Controls[panel_ViewArea.Controls.Count - 1].Show();
+             };
+        }
         //private void AdminDashboard_SizeChanged(object sender, EventArgs e) {MessageBox.Show("sender: "+sender.ToString() + ", e: " + e.ToString());}
     }
 }

@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using DAL.Component;
+using DAL.Component.Filter;
 
 namespace Client.Components.Base
 {
     public partial class DataFilterSelector : UserControl
     {
-        [Browsable(true),EditorBrowsable(EditorBrowsableState.Always),DisplayName("Component"),Description("Component Type"),DefaultValue(Component.User)]
-        public Component Component{get;set;}
+        private Component component;
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), DisplayName("Component"), Description("Component Type"), DefaultValue(Component.User)]
+        public Component Component { get => component; set => SetComponent(value); }
+
         private FilterCollection AvailableFilters;
         private FilterCollection AppliedFilters;
         public DataFilterSelector()
@@ -48,7 +49,6 @@ namespace Client.Components.Base
              {
                  RemoveFilter(listView_AppliedFilters.SelectedIndices[0]);
              };
-
             #endregion
             InitializeFilterCollection();
         }
@@ -96,7 +96,7 @@ namespace Client.Components.Base
         }
         public DataTable GetTable()
         {
-            return DAL.UserMethods.GetFilteredTable(Component.GetTableName(), Component.GetTableColumns(), AppliedFilters);
+            return DAL.Methods.GetFilteredTable(Component.GetTableName(), Component.GetTableColumns(), AppliedFilters);
         }
         private void SyncFilterCollections()
         {
@@ -123,6 +123,11 @@ namespace Client.Components.Base
             {
                 comboBox_AvailableFilters.Items.Add(FilterName);
             }
+        }
+        private void SetComponent(Component component)
+        {
+            this.component = component;
+            InitializeFilterCollection();
         }
     }
 }

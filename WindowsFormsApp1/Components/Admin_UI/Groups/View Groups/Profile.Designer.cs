@@ -1,6 +1,6 @@
-﻿namespace GystClient.AdminScreens
+﻿namespace Client.Components.Admin_UI.Groups
 {
-    partial class TimeTable
+    partial class Profile
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Profile
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "Profile";
+            this.Size = new System.Drawing.Size(520, 330);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

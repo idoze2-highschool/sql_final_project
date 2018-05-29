@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GystClient.AdminScreens
+namespace Client.Components.Admin_UI.Courses
 {
-    public partial class TimeTable : UserControl
+    public partial class CreateCourse : MetroFramework.Controls.MetroUserControl
     {
-        public TimeTable()
+        public CreateCourse()
         {
             InitializeComponent();
         }
+
     }
 }

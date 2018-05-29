@@ -40,5 +40,21 @@ namespace Client
                     return "3rd";
             }
         }
+        /// <summary>
+        /// Returns Whether or not str consists only of A-Z,a-z Characters.
+        /// </summary>
+        /// <param name="str">Tested String</param>
+        public static bool IsValidString(string str)
+        {
+                return System.Text.RegularExpressions.Regex.IsMatch(str, @"^[a-zA-Z]+$");
+        }
+        /// <summary>
+        /// Returns Whether or not str is a string representation of a 9 digit number.
+        /// </summary>
+        /// <param name="str"></param>
+        public static bool IsValidSocialID(string str)
+        {
+                return (System.Text.RegularExpressions.Regex.IsMatch(str, @"^[0-9]{9}$"));
+        }
     }
 }

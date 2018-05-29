@@ -255,10 +255,7 @@
             // 
             // panel_ViewArea
             // 
-            this.panel_ViewArea.AutoSize = true;
-            this.panel_ViewArea.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_ViewArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.panel_ViewArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_ViewArea.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel_ViewArea.HorizontalScrollbarBarColor = true;
             this.panel_ViewArea.HorizontalScrollbarHighlightOnWheel = false;

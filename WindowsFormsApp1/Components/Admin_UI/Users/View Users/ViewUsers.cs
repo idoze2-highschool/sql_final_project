@@ -26,21 +26,22 @@ namespace Client.Components.Admin_UI.Users
                             switch (Type)
                             {
                                 case -1:
-                                    ((AdminDashboard)FindForm()).ViewScreen(new Admin() { UserID = ID });
+                                    ((AdminDashboard)FindForm()).ViewScreen(new Admin(ID));
                                     break;
                                 case 0:
-                                    ((AdminDashboard)FindForm()).ViewScreen(new Admin() { UserID = ID });
+                                    ((AdminDashboard)FindForm()).ViewScreen(new Teacher(ID));
                                     break;
                                 case 1:
-                                    ((AdminDashboard)FindForm()).ViewScreen(new Admin() { UserID = ID });
+                                    ((AdminDashboard)FindForm()).ViewScreen(new Student(ID));
                                     break;
                             }
                         };
             button_New_User.Click += (object sender, EventArgs e) =>
              {
                  Users.CreateUser s = new Users.CreateUser();
-                 ((AdminDashboard)FindForm()).ViewScreen(s);
+                 ((AdminDashboard)FindForm()).AddScreen(s);
              };
+            LoadResults();
         }
         public void LoadResults()
         {

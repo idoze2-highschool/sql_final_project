@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Admin_UI\Courses\Create Course\CreateCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Courses\Create Course\CreateCourse.Designer.cs">
+      <DependentUpon>CreateCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Admin_UI\Courses\View Courses\ViewCourses.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,6 +92,24 @@
     </Compile>
     <Compile Include="Components\Admin_UI\AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Groups\Create Group\CreateGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Groups\Create Group\CreateGroup.Designer.cs">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Groups\View Groups\Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Groups\View Groups\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Groups\View Groups\Timetable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Groups\View Groups\Timetable.Designer.cs">
+      <DependentUpon>Timetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Admin_UI\Groups\View Groups\ViewGroups.cs">
       <SubType>UserControl</SubType>
@@ -90,6 +129,12 @@
     <Compile Include="Components\Admin_UI\Users\Create User\CreateUser.Designer.cs">
       <DependentUpon>CreateUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Teacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Teacher.Designer.cs">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Student.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -101,6 +146,18 @@
     </Compile>
     <Compile Include="Components\Admin_UI\Users\View Users\Profiles\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\TimeTables\AddLesson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\TimeTables\AddLesson.Designer.cs">
+      <DependentUpon>AddLesson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\TimeTables\Teacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Admin_UI\Users\View Users\TimeTables\Teacher.Designer.cs">
+      <DependentUpon>Teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\Admin_UI\Users\View Users\ViewUsers.cs">
       <SubType>UserControl</SubType>
@@ -115,6 +172,19 @@
     <Compile Include="Components\Base\Controls\DataFilterSelector.Designer.cs">
       <DependentUpon>DataFilterSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\Base\Screens\IReturnScreen.cs" />
+    <Compile Include="Components\Teacher_UI\Dashboard\LandingPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Teacher_UI\Dashboard\LandingPage.Designer.cs">
+      <DependentUpon>LandingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Teacher_UI\TeacherDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\Teacher_UI\TeacherDashboard.Designer.cs">
+      <DependentUpon>TeacherDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,10 +192,10 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods.cs" />
-    <Compile Include="Components\Base\Controls\Timetable.cs">
+    <Compile Include="Components\Base\Controls\Timetable\Timetable.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\Base\Controls\Timetable.Designer.cs">
+    <Compile Include="Components\Base\Controls\Timetable\Timetable.Designer.cs">
       <DependentUpon>Timetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -145,11 +215,23 @@
     <EmbeddedResource Include="Components\Admin_UI\Dashboard\LandingPage.resx">
       <DependentUpon>LandingPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Groups\Create Group\CreateGroup.resx">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Groups\View Groups\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Admin_UI\Groups\View Groups\ViewGroups.resx">
       <DependentUpon>ViewGroups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Admin_UI\Subjects\View Subjects\ViewSubjects.resx">
       <DependentUpon>ViewSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Users\Create User\CreateUser.resx">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Users\View Users\Profiles\Teacher.resx">
+      <DependentUpon>Teacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Admin_UI\Users\View Users\Profiles\Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
@@ -157,22 +239,35 @@
     <EmbeddedResource Include="Components\Admin_UI\Users\View Users\Profiles\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Users\View Users\TimeTables\AddLesson.resx">
+      <DependentUpon>AddLesson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Admin_UI\Users\View Users\TimeTables\Teacher.resx">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\Admin_UI\Users\View Users\ViewUsers.resx">
       <DependentUpon>ViewUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\Base\Controls\DataFilterSelector.resx">
       <DependentUpon>DataFilterSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\Teacher_UI\Dashboard\LandingPage.resx">
+      <DependentUpon>LandingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Teacher_UI\TeacherDashboard.resx">
+      <DependentUpon>TeacherDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\Base\Controls\Timetable.resx">
+    <EmbeddedResource Include="Components\Base\Controls\Timetable\Timetable.resx">
       <DependentUpon>Timetable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -212,14 +307,22 @@
     <None Include="Resources\Royalblue.Jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Admin_UI\Courses\Create Course\" />
-    <Folder Include="Components\Admin_UI\Groups\Create Group\" />
     <Folder Include="Components\Admin_UI\Subjects\Create Subject\" />
-    <Folder Include="Components\Base\Screens\" />
-    <Folder Include="Components\Teacher_UI\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\colored-pencils.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

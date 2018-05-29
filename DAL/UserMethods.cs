@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
-using DAL.Component;
+using DAL.Component.Data;
 
 namespace DAL
 {
@@ -13,11 +13,11 @@ namespace DAL
     {
         #region Data Pulling
         #region User
-        public static Component.User GetUser(string username, string password)
+        public static User GetUser(string username, string password)
         {
             DataTable Data = OledbHelper.GetTable("Select * From Users Where UName='" + username + "' AND PWord='" + password + "'");
             DataRow DataR = Data.Rows[0];
-            return new Component.User(int.Parse(DataR["UserID"].ToString()), DataR["FName"].ToString(), DataR["LName"].ToString(), int.Parse(DataR["UserType"].ToString()));
+            return new User(int.Parse(DataR["UserID"].ToString()), DataR["FName"].ToString(), DataR["LName"].ToString(), int.Parse(DataR["UserType"].ToString()));
         }
         public static string GetNameOfUser(int UserID)
         {
@@ -120,9 +120,6 @@ namespace DAL
             DataTable data = OledbHelper.GetTable(expr);
             return data.Rows;
         }
-
-
-
         /// <summary>
         /// Returns A Collection Of Lesson To Group Relations.
         /// Fields: TeacherID, Teacher.FName, Teacher.LName, Lesson.LessonID, Lesson.Day, Lesson.Period, Groups.GroupName, Groups.GroupName, Subjects.SubjectName 
@@ -182,23 +179,20 @@ namespace DAL
         #region Add
         public static bool AddUser(string Username, string Password)
         {
-            try
-            {
                 if (!UserExists(Username, Password))
                 {
-                    string cmd = "INSERT INTO Users (UName,PWord) Values ('" + Username + "','" + Password + "');";
-                    OledbHelper.Execute(cmd);
-                    return true;
+                    try
+                    {
+                        string cmd = "INSERT INTO Users (UName,PWord) Values ('" + Username + "','" + Password + "');";
+                        OledbHelper.Execute(cmd);
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
                 }
-                else
-                {
-                    throw new Exception("User Exists");
-                }
-            }
-            catch
-            {
-                return false;
-            }
+            return false;
         }
         public static void AddLesson(int TeacherID, int GroupID, int SubjectID, int Day, int Period)
         {

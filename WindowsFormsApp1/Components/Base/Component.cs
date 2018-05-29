@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Component;
+using DAL.Component.Filter;
 
 namespace Client.Components.Base
 {
@@ -27,9 +27,9 @@ namespace Client.Components.Base
                 case Component.Course:
                     return FilterCollections.CourseFilters;
                 case Component.Subject:
-                    return FilterCollections.UserFilters;
+                    return FilterCollections.SubjectFilters;
                 case Component.Group:
-                    return FilterCollections.UserFilters;
+                    return FilterCollections.GroupFilters;
 
             }
             return FilterCollections.NullFilterCollection;
@@ -60,8 +60,15 @@ namespace Client.Components.Base
                         "[LName] as Surname",
                         "[UserType] as Type"
                     };
+                case Component.Group:
+                    return new string[]
+                    {
+                        "[GroupID] as ID",
+                        "[GroupName] as Name",
+                        "[CourseID] as CourseID"
+                    };
             }
-            return new string[] { };
+            return new string[] {"*"};
         }
     }
 }

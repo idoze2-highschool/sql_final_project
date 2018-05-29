@@ -1,4 +1,4 @@
-﻿namespace DAL.Component
+﻿namespace DAL.Component.Data
 {
     public class User
     {

@@ -56,7 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 20);
@@ -73,7 +73,7 @@
             this.FilterSelector.Location = new System.Drawing.Point(280, 0);
             this.FilterSelector.Margin = new System.Windows.Forms.Padding(0);
             this.FilterSelector.Name = "FilterSelector";
-            this.FilterSelector.Size = new System.Drawing.Size(243, 143);
+            this.FilterSelector.Size = new System.Drawing.Size(243, 163);
             this.FilterSelector.TabIndex = 1;
             this.FilterSelector.TabStop = false;
             // 

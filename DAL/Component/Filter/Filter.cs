@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Component
+namespace DAL.Component.Filter
 {
     public class Filter
     {
@@ -17,7 +17,7 @@ namespace DAL.Component
             baseFilter = Filter;
         }
         //Base Ctor
-        public Filter(string Name, string Query, string Format, Type AcceptType)
+        internal Filter(string Name, string Query, string Format, Type AcceptType)
         {
             this.Name = Name;
             this.Query = Query;
@@ -114,7 +114,7 @@ namespace DAL.Component
             }
             catch
             {
-                return Component.Filters.NullFilter;
+                return Component.Filter.Filters.NullFilter;
             }
             
             return Filter;

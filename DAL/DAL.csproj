@@ -42,9 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component\Filter.cs" />
-    <Compile Include="Component\Filters.cs" />
-    <Compile Include="Component\User.cs" />
+    <Compile Include="Component\Data\Course.cs" />
+    <Compile Include="Component\Data\Group.cs" />
+    <Compile Include="Component\Data\Lesson.cs" />
+    <Compile Include="Component\Data\Subject.cs" />
+    <Compile Include="Component\Filter\Filter.cs" />
+    <Compile Include="Component\Filter\Filters.cs" />
+    <Compile Include="Component\Data\User.cs" />
     <Compile Include="Methods.cs" />
     <Compile Include="oledbhelper.cs" />
     <Compile Include="Program.cs" />
@@ -53,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB.accdb">

@@ -38,6 +38,7 @@ namespace Client.Components.Base
             this.button_Add = new System.Windows.Forms.Button();
             this.listView_AppliedFilters = new System.Windows.Forms.ListView();
             this.panel_Input = new System.Windows.Forms.Panel();
+            this.label_Desc = new System.Windows.Forms.Label();
             this.panel_Input.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -142,6 +143,15 @@ namespace Client.Components.Base
             this.panel_Input.Size = new System.Drawing.Size(303, 23);
             this.panel_Input.TabIndex = 9;
             // 
+            // label_Desc
+            // 
+            this.label_Desc.AutoSize = true;
+            this.label_Desc.Location = new System.Drawing.Point(-3, 143);
+            this.label_Desc.Name = "label_Desc";
+            this.label_Desc.Size = new System.Drawing.Size(60, 13);
+            this.label_Desc.TabIndex = 10;
+            this.label_Desc.Text = "Description";
+            // 
             // DataFilterSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -149,11 +159,12 @@ namespace Client.Components.Base
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.label_Desc);
             this.Controls.Add(this.panel_Input);
             this.Controls.Add(this.listView_AppliedFilters);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "DataFilterSelector";
-            this.Size = new System.Drawing.Size(303, 143);
+            this.Size = new System.Drawing.Size(303, 156);
             this.panel_Input.ResumeLayout(false);
             this.panel_Input.PerformLayout();
             this.ResumeLayout(false);
@@ -169,7 +180,6 @@ namespace Client.Components.Base
         private System.Windows.Forms.ListView listView_AppliedFilters;
         private System.Windows.Forms.Panel panel_Input;
         private System.Windows.Forms.Button button_Add;
-        
-
+        private System.Windows.Forms.Label label_Desc;
     }
 }

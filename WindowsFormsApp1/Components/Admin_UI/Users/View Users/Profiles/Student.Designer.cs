@@ -35,10 +35,11 @@
             // 
             // button_View_Timetable
             // 
-            this.button_View_Timetable.Location = new System.Drawing.Point(206, 127);
+            this.button_View_Timetable.Location = new System.Drawing.Point(205, 127);
             this.button_View_Timetable.Name = "button_View_Timetable";
             this.button_View_Timetable.Size = new System.Drawing.Size(75, 23);
             this.button_View_Timetable.TabIndex = 7;
+            this.button_View_Timetable.TabStop = false;
             this.button_View_Timetable.Text = "Timetable";
             this.button_View_Timetable.UseSelectable = true;
             // 
@@ -48,6 +49,7 @@
             this.button_View_Groups.Name = "button_View_Groups";
             this.button_View_Groups.Size = new System.Drawing.Size(75, 23);
             this.button_View_Groups.TabIndex = 6;
+            this.button_View_Groups.TabStop = false;
             this.button_View_Groups.Text = "View Groups";
             this.button_View_Groups.UseSelectable = true;
             // 
@@ -71,6 +73,8 @@
             this.Controls.Add(this.label_Name);
             this.Name = "Student";
             this.Size = new System.Drawing.Size(516, 324);
+            this.UseCustomBackColor = true;
+            this.UseCustomForeColor = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

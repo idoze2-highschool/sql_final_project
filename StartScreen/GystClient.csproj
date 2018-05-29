@@ -115,12 +115,6 @@
     <Compile Include="AdminScreens\Manage Timetable\ManageTimetable.Designer.cs">
       <DependentUpon>ManageTimetable.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminScreens\TimeTable.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AdminScreens\TimeTable.Designer.cs">
-      <DependentUpon>TimeTable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Methods.cs" />
     <Compile Include="StudentScreens\Dashboard.cs">
       <SubType>Form</SubType>
