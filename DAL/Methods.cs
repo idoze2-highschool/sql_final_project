@@ -20,6 +20,7 @@ namespace DAL
         {
             return GetFilteredTable(TableName, Columns, new FilterCollection(Filters));
         }
+        
         //base method
         public static DataTable GetFilteredTable(string TableName, string[] Columns, FilterCollection Filters)
         {
@@ -202,6 +203,27 @@ namespace DAL
             Filter FSubjectID = Filter.CloneWithValue(Filters.Subject.SubjectID, SubjectID.ToString());
             DataTable dt = GetFilteredTable(Subject.Tablename, new string[] { "SubjectName" }, FSubjectID);
             return dt.Rows[0][0].ToString();
+        }
+        #endregion
+        #region Assignment
+        public static Assignment GetAssignmentByID(int ID)
+        {
+            Filter FAssignmentID = Filter.CloneWithValue(Filters.Assignment.ID, ID.ToString());
+            DataRow dr = GetFilteredTable(Assignment.Tablename,FAssignmentID).Rows[0];
+            return new Assignment(
+                (int)dr[0],
+                (int)dr[1],
+                (int)dr[2],
+                (int)dr[3],
+                (string)dr[4],
+                (string)dr[5],
+                (DateTime)dr[6]);
+        }
+        public static DataTable GetAssignmentStudentsByID(int ID)
+        {
+            string Expr = string.Format("SELECT [Users].FName, [Users].LName, [StudentToAssignment].Grade FROM Users INNER JOIN StudentToAssignment ON ([Users].UserID =[ StudentToAssignment].StudentID) WHERE ((([StudentToAssignment].AssignmentID)={0})) ORDER BY [Users].FName, [Users].LName;",ID.ToString());
+            DataTable dt = OledbHelper.GetTable(Expr);
+            return dt;
         }
         #endregion
         #endregion

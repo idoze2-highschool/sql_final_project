@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Component.Data
 {
-    class Subject
+    public class Subject
     {
         int id;
         string subjectName;

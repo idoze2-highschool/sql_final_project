@@ -15,7 +15,12 @@ namespace Client.Components.Teacher_UI.Dashboard
         public LandingPage()
         {
             InitializeComponent();
-            label1.Text = label1.Text.Replace("%NAME%",Program.user.FName);
+            label1.Text = string.Format("Welcome, {0}!\nHere's Your Timetable",Program.user.FName);
+        }
+
+        private void timetable1_Load(object sender, EventArgs e)
+        {
+            timetable1.AddLessons(DAL.Methods.GetLessonsByTeacher(Program.user.ID), "[SubjectName]");
         }
     }
 }

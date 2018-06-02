@@ -32,7 +32,6 @@
             this.button_Logout = new System.Windows.Forms.Button();
             this.panel_MenuButtons = new MetroFramework.Controls.MetroPanel();
             this.button_Select_Dashboard = new System.Windows.Forms.Button();
-            this.button_Select_Lesson = new System.Windows.Forms.Button();
             this.button_Select_Grades = new System.Windows.Forms.Button();
             this.panel_Menu = new MetroFramework.Controls.MetroPanel();
             this.panel_ViewArea = new MetroFramework.Controls.MetroPanel();
@@ -81,7 +80,6 @@
             this.panel_MenuButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_MenuButtons.BackColor = System.Drawing.Color.Transparent;
             this.panel_MenuButtons.Controls.Add(this.button_Select_Dashboard);
-            this.panel_MenuButtons.Controls.Add(this.button_Select_Lesson);
             this.panel_MenuButtons.Controls.Add(this.button_Select_Grades);
             this.panel_MenuButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_MenuButtons.HorizontalScrollbarBarColor = true;
@@ -123,31 +121,6 @@
             this.button_Select_Dashboard.UseVisualStyleBackColor = false;
             this.button_Select_Dashboard.Click += new System.EventHandler(this.MenuButton_Click);
             // 
-            // button_Select_Lesson
-            // 
-            this.button_Select_Lesson.AutoEllipsis = true;
-            this.button_Select_Lesson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(30)))), ((int)(((byte)(145)))), ((int)(((byte)(79)))));
-            this.button_Select_Lesson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Select_Lesson.FlatAppearance.BorderSize = 0;
-            this.button_Select_Lesson.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(145)))), ((int)(((byte)(79)))));
-            this.button_Select_Lesson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(145)))), ((int)(((byte)(79)))));
-            this.button_Select_Lesson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(145)))), ((int)(((byte)(79)))));
-            this.button_Select_Lesson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Select_Lesson.Font = new System.Drawing.Font("Levenim MT", 15F, System.Drawing.FontStyle.Bold);
-            this.button_Select_Lesson.ForeColor = System.Drawing.Color.Honeydew;
-            this.button_Select_Lesson.Image = global::Client.Properties.Resources.monitor;
-            this.button_Select_Lesson.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button_Select_Lesson.Location = new System.Drawing.Point(0, 40);
-            this.button_Select_Lesson.Margin = new System.Windows.Forms.Padding(0);
-            this.button_Select_Lesson.Name = "button_Select_Lesson";
-            this.button_Select_Lesson.Size = new System.Drawing.Size(166, 37);
-            this.button_Select_Lesson.TabIndex = 1;
-            this.button_Select_Lesson.Text = "Lesson";
-            this.button_Select_Lesson.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button_Select_Lesson.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_Select_Lesson.UseVisualStyleBackColor = false;
-            this.button_Select_Lesson.Click += new System.EventHandler(this.MenuButton_Click);
-            // 
             // button_Select_Grades
             // 
             this.button_Select_Grades.AutoEllipsis = true;
@@ -162,7 +135,7 @@
             this.button_Select_Grades.ForeColor = System.Drawing.Color.Honeydew;
             this.button_Select_Grades.Image = global::Client.Properties.Resources.monitor;
             this.button_Select_Grades.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button_Select_Grades.Location = new System.Drawing.Point(0, 79);
+            this.button_Select_Grades.Location = new System.Drawing.Point(0, 38);
             this.button_Select_Grades.Margin = new System.Windows.Forms.Padding(0);
             this.button_Select_Grades.Name = "button_Select_Grades";
             this.button_Select_Grades.Size = new System.Drawing.Size(166, 37);
@@ -255,7 +228,6 @@
         private System.Windows.Forms.Button button_Logout;
         private MetroFramework.Controls.MetroPanel panel_MenuButtons;
         private System.Windows.Forms.Button button_Select_Dashboard;
-        private System.Windows.Forms.Button button_Select_Lesson;
         private System.Windows.Forms.Button button_Select_Grades;
         private MetroFramework.Controls.MetroPanel panel_Menu;
         private MetroFramework.Controls.MetroPanel panel_ViewArea;

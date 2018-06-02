@@ -25,7 +25,6 @@ namespace Client.Components.Admin_UI.Groups
                 var Cells = ResultGrid.SelectedRows[0].Cells;
                 int ID = (int)Cells["ID"].Value;
                 ((AdminDashboard)FindForm()).ViewScreen(new Profile(ID));
-
             };
             button_New_Group.Click += (object sender, EventArgs e) =>
             {

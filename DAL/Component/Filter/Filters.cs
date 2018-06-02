@@ -138,6 +138,23 @@ namespace DAL.Component.Filter
                 );
         }
         #endregion
+        #region Assignment Filters
+        public static class Assignment
+        {
+            public static readonly Filter ID = new Filter(
+                "AssignmentID",
+                "AssignmentID = [CheckValue]",
+                "ID = [FormatValue]",
+                typeof(int)
+                );
+            public static readonly Filter TeacherID = new Filter(
+                "TeacherID",
+                "[Assignments].TeacherID = [CheckValue]",
+                "TeacherID = [FormatValue]",
+                typeof(int)
+                );
+        }
+        #endregion
     }
     public static class FilterCollections
     {

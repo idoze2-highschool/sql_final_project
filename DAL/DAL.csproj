@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\Data\Assignment.cs" />
     <Compile Include="Component\Data\Course.cs" />
     <Compile Include="Component\Data\Group.cs" />
     <Compile Include="Component\Data\Lesson.cs" />
@@ -57,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB.accdb">

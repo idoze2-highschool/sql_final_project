@@ -59,14 +59,15 @@ namespace Client.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\idoze\\Desktop\\Project\\Gyst" +
-            "\\DAL\\DB.accdb;Persist Security Info=True")]
-        public string ViewUsers {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LoggedIn {
             get {
-                return ((string)(this["ViewUsers"]));
+                return ((bool)(this["LoggedIn"]));
+            }
+            set {
+                this["LoggedIn"] = value;
             }
         }
     }

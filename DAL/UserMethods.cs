@@ -45,7 +45,7 @@ namespace DAL
         }
         #endregion
         #endregion
-        #region Course
+        #region Courses
         public static DataRowCollection GetCourseToTeacher(int teacherID)
         {
             string expr = String.Format("SELECT * FROM GetTeacherToCourse Where TeacherID = {0}", teacherID);
@@ -89,12 +89,12 @@ namespace DAL
         }
         public static string GetCourseName(int CourseID)
         {
-            string expr = string.Format("SELECT Course.[CourseName] FROM Course WHERE (Course.[CourseID] = {0})", CourseID);
+            string expr = string.Format("SELECT Courses.[CourseName] FROM Courses WHERE (Courses.[CourseID] = {0})", CourseID);
             return (string)OledbHelper.GetTable(expr).Rows[0][0];
         }
         public static int GetCourseGrade(int CourseID)
         {
-            string expr = string.Format("SELECT Course.[Grade] From Course Where (Course.[CourseID] = {0})", CourseID);
+            string expr = string.Format("SELECT Courses.[Grade] From Courses Where (Courses.[CourseID] = {0})", CourseID);
             return (int)OledbHelper.GetTable(expr).Rows[0][0];
         }
         #endregion

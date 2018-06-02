@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Component.Data
 {
-    class Group
+    public class Group
     {
         int id, courseID;
         string groupName;

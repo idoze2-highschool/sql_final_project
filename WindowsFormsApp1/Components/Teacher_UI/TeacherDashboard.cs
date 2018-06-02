@@ -22,8 +22,7 @@ namespace Client.Components.Teacher_UI
         private void InitializeMenuButtons()
         {
             button_Select_Dashboard.Tag = new Dashboard.LandingPage();
-            button_Select_Lesson.Tag = new Users.ViewUsers();
-            button_Select_Grades.Tag = new Courses.ViewCourses();
+            button_Select_Grades.Tag = new Assignments.Create();
         }
         private void button_Close_Click(object sender, EventArgs e)
         {
@@ -51,7 +50,6 @@ namespace Client.Components.Teacher_UI
             button.BackColor = Color.FromArgb(205, 30, 145, 79);
             button.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, button.BackColor);
             button.FlatAppearance.MouseDownBackColor = button.FlatAppearance.MouseOverBackColor;
-
             ViewScreen((MetroFramework.Controls.MetroUserControl)(button.Tag));
 
         }
